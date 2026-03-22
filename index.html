@@ -8,7 +8,7 @@
     <!-- Google Fonts s plnou podporou češtiny -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,400;1,700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -24,6 +24,7 @@
                     fontFamily: {
                         serif: ['Playfair Display', 'serif'],
                         sans: ['Montserrat', 'sans-serif'],
+                        display: ['Cormorant Garamond', 'serif'],
                     }
                 }
             }
@@ -59,7 +60,7 @@
         /* Globální styl pro nadpisy sekcí H2 */
         .h2-unified {
             font-family: 'Playfair Display', serif;
-            font-size: 3rem; /* md:text-7xl upraveno v HTML */
+            font-size: 3rem;
             font-style: italic;
             margin-bottom: 3rem;
             letter-spacing: -0.02em;
@@ -75,7 +76,7 @@
             font-style: italic;
         }
 
-        /* Styl pro POI body (Points of Interest) */
+        /* Styl pro POI body */
         .poi-item {
             border-left: 4px solid rgba(89, 3, 3, 0.2);
             padding-left: 2rem;
@@ -144,13 +145,14 @@
         </div>
     </nav>
 
-    <!-- 2. HERO SEKCE -->
+    <!-- 2. HERO SEKCE (H1 upraveno) -->
     <section class="relative h-screen flex items-center justify-center overflow-hidden">
         <img src="am_foto.png" alt="Anička a Martin" class="absolute inset-0 w-full h-full object-cover">
         <div class="absolute inset-0 bg-black/15"></div>
         
         <div class="relative text-center text-white px-4 fade-in">
-            <h1 class="font-serif text-5xl md:text-[7.5rem] leading-none mb-8 tracking-tight">Svatba A & M</h1>
+            <!-- H1 s Cormorant Garamond pro krásné & -->
+            <h1 class="font-display italic font-normal text-6xl md:text-[9rem] leading-none mb-8 tracking-tight">Svatba A & M</h1>
             
             <div class="flex items-center justify-center space-x-4 md:space-x-8">
                 <div class="h-px w-8 md:w-16 bg-white/40"></div>
@@ -242,7 +244,7 @@
     <section id="misto" class="py-24 border-y border-vinova/5 bg-white/30">
         <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-20 items-center">
             <div>
-                <h2 class="h2-unified md:text-6xl">Místo konání</h2>
+                <h2 class="h2-unified md:text-6xl uppercase tracking-tighter">Místo konání</h2>
                 <p class="poi-title mb-4">Husova 225, Borohrádek</p>
                 <div class="h-px w-20 bg-vinova/20 mb-8"></div>
                 <p class="p-unified max-w-sm">
@@ -260,47 +262,55 @@
         </div>
     </section>
 
-    <!-- 6. JÍDLO -->
-    <section id="jidlo" class="py-32 px-6 max-w-6xl mx-auto">
-        <div class="grid md:grid-cols-12 gap-16 items-start">
-            <div class="md:col-span-7">
-                <h2 class="h2-unified md:text-7xl">Na čem si pochutnáte</h2>
-                <div class="space-y-6">
-                    <p class="p-unified">Tradiční společný oběd pro úzký okruh neplánujeme – chceme být se všemi hned od začátku.</p>
-                    <p class="p-unified">Raut od <span class="font-bold underline underline-offset-8">Kampus catering</span> začne kolem 14:00.</p>
-                </div>
-                
-                <div class="bg-vinova text-kremova p-8 rounded shadow-xl my-12">
-                    <p class="font-sans text-base font-light italic leading-relaxed">
-                        Protože catering startuje déle, doporučujeme se po cestě k nám zastavit na oběd, ať vám během obřadu nekručí v břiše:
-                    </p>
-                </div>
-
+    <!-- 6. JÍDLO (Cik-Cak) -->
+    <section id="jidlo" class="py-32 px-6 bg-kremova overflow-hidden">
+        <div class="max-w-6xl mx-auto space-y-32">
+            
+            <!-- BLOK 1: Hlavní text + Fotky jídla -->
+            <div class="grid md:grid-cols-2 gap-16 items-center">
                 <div class="space-y-8">
-                    <a href="https://www.google.com/search?q=Den+Kostelec+nad+Orlicí" target="_blank" class="poi-item block hover:bg-vinova/5 transition-colors py-2">
-                        <p class="poi-title">Den Kostelec n. O. 🍜</p>
-                        <p class="poi-desc">Vietnamská restaurace – doporučujeme Pho Bo Thai.</p>
-                    </a>
-                    <a href="https://www.google.com/search?q=Kozlova+putyka+Borohrádek" target="_blank" class="poi-item block hover:bg-vinova/5 transition-colors py-2">
-                        <p class="poi-title">Kozlova putyka 🍔</p>
-                        <p class="poi-desc">Burgery a steaky pro pořádný základ.</p>
-                    </a>
-                    <a href="https://www.google.com/search?q=Motorest+Lípa+nad+Orlicí" target="_blank" class="poi-item block hover:bg-vinova/5 transition-colors py-2">
-                        <p class="poi-title">Motorest Lípa nad Orlicí 🍴</p>
-                        <p class="poi-desc">Poctivý mastnější základ (SMAŽÁK!), nečekejte luxus.</p>
-                    </a>
+                    <h2 class="h2-unified md:text-7xl">Na čem si pochutnáte</h2>
+                    <div class="space-y-6">
+                        <p class="p-unified">Tradiční společný oběd pro úzký okruh neplánujeme – chceme být se všemi hned od začátku.</p>
+                        <p class="p-unified">Raut od <span class="font-bold underline underline-offset-8 decoration-vinova/20">Kampus catering</span> začne kolem <span class="font-bold not-italic">14:00</span>.</p>
+                    </div>
+                </div>
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="img-zoom shadow-lg"><img src="jidlo1.png" class="w-full h-72 object-cover" alt="Jídlo"></div>
+                    <div class="img-zoom shadow-lg mt-12"><img src="jidlo2.png" class="w-full h-72 object-cover" alt="Jídlo"></div>
                 </div>
             </div>
-            <div class="md:col-span-5 grid grid-cols-2 gap-4">
-                <div class="img-zoom shadow-md"><img src="jidlo1.png" class="w-full h-64 object-cover" alt="Jídlo"></div>
-                <div class="img-zoom shadow-md mt-8"><img src="jidlo2.png" class="w-full h-48 object-cover" alt="Jídlo"></div>
-                <div class="img-zoom shadow-md"><img src="jidlo3.png" class="w-full h-48 object-cover" alt="Jídlo"></div>
-                <div class="img-zoom shadow-md -mt-8"><img src="jidlo4.png" class="w-full h-64 object-cover" alt="Jídlo"></div>
+
+            <!-- BLOK 2: Fotky jídla + Tipy -->
+            <div class="grid md:grid-cols-2 gap-16 items-center">
+                <div class="grid grid-cols-2 gap-4 order-2 md:order-1">
+                    <div class="img-zoom shadow-lg"><img src="jidlo3.png" class="w-full h-72 object-cover" alt="Jídlo"></div>
+                    <div class="img-zoom shadow-lg mt-12"><img src="jidlo4.png" class="w-full h-72 object-cover" alt="Jídlo"></div>
+                </div>
+                <div class="space-y-8 order-1 md:order-2">
+                    <p class="p-unified text-xl md:text-2xl">
+                        Protože catering startuje déle, doporučujeme se po cestě k nám zastavit na oběd, ať vám během obřadu nekručí v břiše:
+                    </p>
+                    <div class="space-y-8 pt-4">
+                        <a href="https://www.google.com/search?q=Den+Kostelec+nad+Orlicí" target="_blank" class="poi-item block hover:bg-vinova/5 transition-colors py-2">
+                            <p class="poi-title">Den Kostelec n. O. 🍜</p>
+                            <p class="poi-desc">Vietnamská restaurace – doporučujeme Pho Bo Thai.</p>
+                        </a>
+                        <a href="https://www.google.com/search?q=Kozlova+putyka+Týniště+nad+Orlicí" target="_blank" class="poi-item block hover:bg-vinova/5 transition-colors py-2">
+                            <p class="poi-title">Kozlova putyka (Týniště n. O.) 🍔</p>
+                            <p class="poi-desc">Steak house a burgery pro pořádný základ.</p>
+                        </a>
+                        <a href="https://www.google.com/search?q=Motorest+Lípa+nad+Orlicí" target="_blank" class="poi-item block hover:bg-vinova/5 transition-colors py-2">
+                            <p class="poi-title">Motorest Lípa nad Orlicí 🍴</p>
+                            <p class="poi-desc">Poctivý mastnější základ (SMAŽÁK!), nečekejte luxus.</p>
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- 7. UBYTOVÁNÍ -->
+    <!-- 7. UBYTOVÁNÍ (Cik-Cak) -->
     <section id="ubytovani" class="bg-vinova text-kremova py-32 px-6">
         <div class="max-w-6xl mx-auto space-y-24">
             <h2 class="h2-unified text-center md:text-8xl text-kremova">Ubytování</h2>
@@ -318,7 +328,7 @@
                 </div>
             </div>
 
-            <!-- BLOK 2: 2 Fotky + Tipy v okolí -->
+            <!-- BLOK 2: 2 Fotky + Tipy -->
             <div class="grid md:grid-cols-2 gap-16 items-center">
                 <div class="grid grid-cols-2 gap-4">
                     <div class="img-zoom shadow-lg"><img src="ubytovani_stodola.avif" class="w-full h-72 object-cover" alt="Ubytování"></div>
@@ -375,23 +385,21 @@
     </section>
 
     <!-- 9. PATIČKA -->
-    <footer class="bg-vinova text-kremova pt-32 pb-16 px-6">
-        <div class="max-w-7xl mx-auto text-center">
-            <p class="font-serif text-3xl md:text-5xl italic mb-12 opacity-90">Těšíme se na vás!</p>
-            
-            <div class="flex flex-col md:flex-row justify-between items-center mb-24 gap-12">
-                <div class="text-center md:text-left">
-                    <p class="poi-title text-kremova/30 mb-3">Nevěsta Anička</p>
-                    <p class="font-sans font-medium text-sm tracking-widest">+420 604 616 637</p>
-                </div>
-                <img src="logo_bcg.png" alt="Logo" class="h-32 md:h-48 w-auto brightness-0 invert opacity-90">
-                <div class="text-center md:text-right">
-                    <p class="poi-title text-kremova/30 mb-3">Ženich Martin</p>
-                    <p class="font-sans font-medium text-sm tracking-widest">+420 735 000 998</p>
-                </div>
+    <footer class="bg-vinova text-kremova pt-32 pb-16 px-6 text-center">
+        <p class="font-serif text-3xl md:text-5xl italic mb-12 opacity-90">Těšíme se na vás!</p>
+        
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center mb-24 gap-12">
+            <div class="text-center md:text-left">
+                <p class="poi-title text-kremova/30 mb-3">Nevěsta Anička</p>
+                <p class="font-sans font-medium text-sm tracking-widest">+420 604 616 637</p>
             </div>
-            <p class="poi-desc text-kremova/20 uppercase tracking-[1em] mt-10">Anička & Martin • 2026</p>
+            <img src="logo_bcg.png" alt="Logo" class="h-32 md:h-48 w-auto brightness-0 invert opacity-90">
+            <div class="text-center md:text-right">
+                <p class="poi-title text-kremova/30 mb-3">Ženich Martin</p>
+                <p class="font-sans font-medium text-sm tracking-widest">+420 735 000 998</p>
+            </div>
         </div>
+        <p class="poi-desc text-kremova/20 uppercase tracking-[1em] mt-10">Anička & Martin • 2026</p>
     </footer>
 
     <script>
