@@ -8,7 +8,7 @@
     <!-- Google Fonts s plnou podporou češtiny -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -229,21 +229,32 @@
         </div>
     </section>
 
-    <!-- 7. UBYTOVÁNÍ -->
+    <!-- 7. UBYTOVÁNÍ (NOVÝ LAYOUT) -->
     <section id="ubytovani" class="bg-vinova text-kremova py-32 px-6">
-        <div class="max-w-6xl mx-auto">
-            <h2 class="font-serif text-5xl md:text-8xl mb-16 tracking-tight">Ubytování</h2>
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-20">
-                <img src="ubytovani_chatky.avif" class="w-full h-72 object-cover rounded">
-                <img src="ubytovani_chatky2.avif" class="w-full h-72 object-cover rounded md:mt-12">
-                <img src="ubytovani_stodola.avif" class="w-full h-72 object-cover rounded">
-                <img src="ubytovani_stodola2.avif" class="w-full h-72 object-cover rounded md:mt-12">
+        <div class="max-w-6xl mx-auto space-y-24">
+            <h2 class="font-serif text-5xl md:text-8xl text-center tracking-tight">Ubytování</h2>
+            
+            <!-- BLOK 1: Text o Stodole + 2 Fotky -->
+            <div class="grid md:grid-cols-2 gap-16 items-center">
+                <div class="space-y-6 order-2 md:order-1">
+                    <p class="text-xl md:text-2xl font-light italic leading-relaxed">
+                        Pro ty, kteří budou chtít zůstat i přes noc, je v areálu Stodoly Borohrádek k dispozici skromné ubytování. Není to žádnej Hotel Ritz, ale na přespání postačí.
+                    </p>
+                </div>
+                <div class="grid grid-cols-2 gap-4 order-1 md:order-2">
+                    <img src="ubytovani_chatky.avif" class="w-full h-72 object-cover rounded shadow-lg" alt="Ubytování chatky">
+                    <img src="ubytovani_chatky2.avif" class="w-full h-72 object-cover rounded shadow-lg mt-12" alt="Ubytování chatky 2">
+                </div>
             </div>
-            <div class="max-w-4xl pt-16 border-t border-kremova/10 text-lg font-light italic leading-relaxed space-y-12">
-                <p>Pro ty, kteří budou chtít zůstat i přes noc, je v areálu Stodoly Borohrádek k dispozici skromné ubytování. Není to žádnej Hotel Ritz, ale na přespání postačí.</p>
-                
-                <div class="bg-white/5 p-8 rounded not-italic">
-                    <p class="text-base mb-8 font-semibold uppercase tracking-[0.2em]">Pokud by ale někdo přece jen toužil po větším komfortu, je možné si na vlastní pěst zajistit ubytování např:</p>
+
+            <!-- BLOK 2: 2 Fotky + Tipy v okolí -->
+            <div class="grid md:grid-cols-2 gap-16 items-center">
+                <div class="grid grid-cols-2 gap-4">
+                    <img src="ubytovani_stodola.avif" class="w-full h-72 object-cover rounded shadow-lg" alt="Ubytování stodola">
+                    <img src="ubytovani_stodola2.avif" class="w-full h-72 object-cover rounded shadow-lg mt-12" alt="Ubytování stodola 2">
+                </div>
+                <div class="bg-white/5 p-10 rounded">
+                    <p class="text-base mb-8 font-semibold uppercase tracking-[0.2em] font-sans">Pokud by ale někdo přece jen toužil po větším komfortu, je možné si na vlastní pěst zajistit ubytování např:</p>
                     <ul class="space-y-6 text-sm font-sans uppercase tracking-[0.15em]">
                         <li><a href="https://www.avepo.cz/" target="_blank" class="underline underline-offset-8 decoration-white/30 hover:text-white transition block">• Avepo Borohrádek</a></li>
                         <li><a href="https://www.motorest-roubenka.cz/" target="_blank" class="underline underline-offset-8 decoration-white/30 hover:text-white transition block">• Motorest Roubenka Týniště</a></li>
@@ -254,30 +265,34 @@
         </div>
     </section>
 
-    <!-- 8. DARY & BARVY -->
-    <section id="dary" class="py-40 px-6 max-w-6xl mx-auto flex flex-col lg:flex-row items-center gap-24">
-        <div class="flex-1 text-center lg:text-left">
-            <h2 class="font-serif text-5xl md:text-6xl mb-8 tracking-tight">Svatební dary</h2>
-            <p class="text-xl font-light italic opacity-80 leading-relaxed max-w-md mx-auto lg:mx-0">
-                Vaše přítomnost je pro nás největším darem. Pokud nás přesto chcete obdarovat, budeme vděční za finanční příspěvek na líbánky.
-            </p>
-        </div>
-        
-        <div class="flex-1 flex flex-col items-center lg:items-start">
-            <h2 class="font-serif text-5xl md:text-6xl mb-12 tracking-tight">Barvy svatby</h2>
-            <div class="flex space-x-12 mb-8">
-                <div class="text-center group">
-                    <div class="w-20 h-20 rounded-full bg-vinova shadow-2xl mb-4 transition transform group-hover:scale-110"></div>
-                    <p class="text-[10px] uppercase tracking-widest opacity-50 font-bold">Vínová</p>
-                </div>
-                <div class="text-center group">
-                    <div class="w-20 h-20 rounded-full bg-kremova shadow-2xl mb-4 border border-vinova/10 transition transform group-hover:scale-110"></div>
-                    <p class="text-[10px] uppercase tracking-widest opacity-50 font-bold">Piškotová</p>
-                </div>
+    <!-- 8. DARY & BARVY (SJEDNOCENO) -->
+    <section id="dary" class="py-40 px-6 max-w-6xl mx-auto">
+        <div class="grid lg:grid-cols-2 gap-24 items-start">
+            <!-- Svatební dary -->
+            <div class="text-center lg:text-left">
+                <h2 class="font-serif text-5xl md:text-6xl mb-8 tracking-tight">Svatební dary</h2>
+                <p class="text-xl font-light italic opacity-80 leading-relaxed max-w-md mx-auto lg:mx-0">
+                    Vaše přítomnost je pro nás největším darem. Pokud nás přesto chcete obdarovat, budeme vděční za finanční příspěvek na líbánky.
+                </p>
             </div>
-            <p class="text-sm font-light italic opacity-60 leading-relaxed max-w-sm text-center lg:text-left">
-                Když se s námi barevně sladíte, budeme rádi, ale samozřejmě to není povinné – nejdůležitější je, abyste se cítili dobře.
-            </p>
+            
+            <!-- Barvy svatby -->
+            <div class="flex flex-col items-center lg:items-start">
+                <h2 class="font-serif text-5xl md:text-6xl mb-12 tracking-tight">Barvy svatby</h2>
+                <div class="flex space-x-12 mb-8">
+                    <div class="text-center group">
+                        <div class="w-20 h-20 rounded-full bg-vinova shadow-2xl mb-4 transition transform group-hover:scale-110"></div>
+                        <p class="text-[10px] uppercase tracking-widest opacity-50 font-bold">Vínová</p>
+                    </div>
+                    <div class="text-center group">
+                        <div class="w-20 h-20 rounded-full bg-kremova shadow-2xl mb-4 border border-vinova/10 transition transform group-hover:scale-110"></div>
+                        <p class="text-[10px] uppercase tracking-widest opacity-50 font-bold">Piškotová</p>
+                    </div>
+                </div>
+                <p class="text-sm font-light italic opacity-60 leading-relaxed max-w-sm text-center lg:text-left">
+                    Když se s námi barevně sladíte, budeme rádi, ale samozřejmě to není povinné – nejdůležitější je, abyste se cítili dobře.
+                </p>
+            </div>
         </div>
     </section>
 
@@ -300,18 +315,15 @@
     </footer>
 
     <script>
-        // Sticky Nav Logic
         const navbar = document.getElementById('navbar');
         window.addEventListener('scroll', () => {
             if (window.scrollY > 80) { navbar.classList.add('scrolled'); } 
             else { navbar.classList.remove('scrolled'); }
         });
 
-        // Mobile Menu
         function toggleMenu() { document.getElementById('mobileMenu').classList.toggle('hidden'); }
         document.getElementById('menuBtn').addEventListener('click', toggleMenu);
 
-        // Countdown
         const targetDate = new Date("June 6, 2026 14:00:00").getTime();
         setInterval(() => {
             const now = new Date().getTime();
