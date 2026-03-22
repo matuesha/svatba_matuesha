@@ -5,15 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Anička & Martin | 6. 6. 2026</title>
     
-    <!-- Google Fonts s plnou podporou češtiny -->
+    <!-- Google Fonts s podporou češtiny -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
-    <!-- Tailwind CSS & AOS Library -->
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     
     <script>
         tailwind.config = {
@@ -33,50 +31,43 @@
     </script>
 
     <style>
-        body { background-color: #F8F6F2; color: #590303; }
+        body { background-color: #F8F6F2; color: #590303; margin: 0; padding: 0; }
         
-        /* Reveal Effect pro Hero Nadpis */
-        .reveal-wrapper { clip-path: inset(0 0 0 0); }
-        .reveal-text {
-            animation: reveal-up 1.8s cubic-bezier(0.77, 0, 0.175, 1) forwards;
-            transform: translateY(100%);
-        }
-        @keyframes reveal-up { to { transform: translateY(0); } }
-
-        /* Sticky Nav Glassmorphism */
+        /* Navigace */
         nav { 
-            background: linear-gradient(to bottom, rgba(248, 246, 242, 0.9), rgba(248, 246, 242, 0.5)); 
+            background: rgba(248, 246, 242, 0.9); 
             backdrop-filter: blur(10px); 
-            transition: all 0.5s ease;
         }
         nav.scrolled { 
-            background: rgba(248, 246, 242, 0.98); 
-            box-shadow: 0 4px 30px rgba(89, 3, 3, 0.05); 
+            box-shadow: 0 4px 20px rgba(89, 3, 3, 0.1); 
         }
 
-        /* Mapa - Piškotový B&W Styl */
+        /* Mapa v barvách webu */
         .map-sepia iframe {
-            filter: grayscale(1) sepia(0.3) contrast(1.1) brightness(0.95);
+            filter: grayscale(1) sepia(0.3) contrast(1.1);
             mix-blend-mode: multiply;
         }
 
-        /* Countdown Ticker */
-        .ticker-item { transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1); display: inline-block; font-family: 'Playfair Display', serif; }
-        
         .no-scrollbar::-webkit-scrollbar { display: none; }
         .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
 
-        /* Parallax Hero */
-        #hero-bg { will-change: transform; transform: scale(1.1); }
+        /* Hero text reveal */
+        .hero-title {
+            animation: fadeIn 1.5s ease-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
     </style>
 </head>
-<body class="font-sans overflow-x-hidden selection:bg-vinova selection:text-kremova">
+<body class="font-sans overflow-x-auto">
 
     <!-- 1. STICKY NAVIGACE -->
-    <nav id="navbar" class="fixed w-full z-50 transition-all duration-700 px-6 py-4 border-b border-vinova/5">
+    <nav id="navbar" class="fixed w-full z-[100] transition-all duration-500 px-6 py-4 border-b border-vinova/10">
         <div class="max-w-7xl mx-auto flex justify-between items-center">
             <a href="#" class="hover:opacity-70 transition-opacity">
-                <img src="logo_bcg.png" alt="A&M Logo" class="h-10 md:h-16 w-auto">
+                <img src="logo_bcg.png" alt="A&M Logo" class="h-12 md:h-16 w-auto">
             </a>
             
             <div class="hidden lg:flex space-x-8 text-[10px] uppercase tracking-[0.3em] font-bold text-vinova">
@@ -89,12 +80,12 @@
 
             <button id="menuBtn" class="lg:hidden text-vinova">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 8h16M4 16h16" />
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8h16M4 16h16" />
                 </svg>
             </button>
         </div>
         <!-- Mobile Menu -->
-        <div id="mobileMenu" class="hidden flex flex-col pt-6 pb-6 space-y-5 text-center uppercase tracking-widest text-[11px] bg-kremova font-bold">
+        <div id="mobileMenu" class="hidden flex flex-col pt-4 pb-6 space-y-4 text-center uppercase tracking-widest text-[11px] bg-kremova font-bold">
             <a href="#misto" onclick="toggleMenu()">Místo</a>
             <a href="#harmonogram" onclick="toggleMenu()">Harmonogram</a>
             <a href="#jidlo" onclick="toggleMenu()">Jídlo</a>
@@ -105,110 +96,103 @@
 
     <!-- 2. HERO SEKCE (Svatba + Logo + Datum) -->
     <section class="relative h-screen flex items-center justify-center overflow-hidden">
-        <div id="hero-bg" class="absolute inset-0 w-full h-full">
-            <img src="am_foto.png" alt="Anička a Martin" class="w-full h-full object-cover">
-        </div>
-        <div class="absolute inset-0 bg-black/15"></div>
+        <img src="am_foto.png" alt="Anička a Martin" class="absolute inset-0 w-full h-full object-cover">
+        <div class="absolute inset-0 bg-black/20"></div>
         
-        <div class="relative text-center text-white px-4">
-            <div class="reveal-wrapper overflow-hidden mb-4">
-                <div class="reveal-text flex flex-col items-center">
-                    <h1 class="font-serif text-5xl md:text-[8rem] leading-none mb-4">Svatba</h1>
-                    <img src="logo_bcg.png" alt="A&M" class="h-24 md:h-56 w-auto brightness-0 invert">
-                </div>
-            </div>
+        <div class="relative text-center text-white px-4 hero-title">
+            <h1 class="font-serif text-5xl md:text-[7rem] leading-none mb-4 uppercase tracking-widest">Svatba</h1>
+            <img src="logo_bcg.png" alt="A&M" class="h-28 md:h-64 w-auto mx-auto brightness-0 invert mb-6">
             
-            <div class="flex items-center justify-center space-x-6 opacity-0 animate-[reveal-up_1s_ease-out_1.2s_forwards]">
-                <div class="h-px w-10 md:w-20 bg-white/60"></div>
-                <p class="text-2xl md:text-5xl font-serif italic tracking-[0.1em] drop-shadow-xl uppercase">6. června 2026</p>
-                <div class="h-px w-10 md:w-20 bg-white/60"></div>
+            <div class="flex items-center justify-center space-x-6">
+                <div class="h-px w-8 md:w-20 bg-white/60"></div>
+                <p class="text-2xl md:text-5xl font-serif italic tracking-widest drop-shadow-lg">6. ČERVNA 2026</p>
+                <div class="h-px w-8 md:w-20 bg-white/60"></div>
             </div>
         </div>
     </section>
 
-    <!-- 3. ODPOČET & ATMOSFÉRA (Prohozené fotky) -->
-    <section class="bg-vinova text-kremova py-32 relative z-10">
+    <!-- 3. ODPOČET & ATMOSFÉRA -->
+    <section class="bg-vinova text-kremova py-24 relative z-10">
         <div class="max-w-6xl mx-auto px-6">
-            <div class="text-center mb-24" data-aos="fade-up">
-                <h2 class="font-serif text-5xl md:text-8xl italic mb-16 tracking-wide italic">Už se to blíží...</h2>
+            <div class="text-center mb-20">
+                <h2 class="font-serif text-5xl md:text-8xl italic mb-12 tracking-wide">Už se to blíží...</h2>
                 
                 <div id="countdown" class="flex justify-center items-center space-x-4 md:space-x-12">
                     <div class="flex flex-col">
-                        <span id="days" class="ticker-item text-5xl md:text-[10rem] leading-none">00</span>
-                        <span class="text-[10px] font-sans uppercase tracking-[0.3em] mt-4 opacity-50">Dny</span>
+                        <span id="days" class="text-5xl md:text-9xl font-serif">00</span>
+                        <span class="text-[10px] uppercase tracking-widest mt-2 opacity-50">Dny</span>
                     </div>
-                    <div class="text-4xl md:text-8xl font-serif opacity-20">/</div>
+                    <div class="text-3xl md:text-7xl opacity-20">/</div>
                     <div class="flex flex-col">
-                        <span id="hours" class="ticker-item text-5xl md:text-[10rem] leading-none">00</span>
-                        <span class="text-[10px] font-sans uppercase tracking-[0.3em] mt-4 opacity-50">Hod</span>
+                        <span id="hours" class="text-5xl md:text-9xl font-serif">00</span>
+                        <span class="text-[10px] uppercase tracking-widest mt-2 opacity-50">Hod</span>
                     </div>
-                    <div class="text-4xl md:text-8xl font-serif opacity-20">/</div>
+                    <div class="text-3xl md:text-7xl opacity-20">/</div>
                     <div class="flex flex-col">
-                        <span id="minutes" class="ticker-item text-5xl md:text-[10rem] leading-none">00</span>
-                        <span class="text-[10px] font-sans uppercase tracking-[0.3em] mt-4 opacity-50">Min</span>
+                        <span id="minutes" class="text-5xl md:text-9xl font-serif">00</span>
+                        <span class="text-[10px] uppercase tracking-widest mt-2 opacity-50">Min</span>
                     </div>
-                    <div class="text-4xl md:text-8xl font-serif opacity-20">/</div>
+                    <div class="text-3xl md:text-7xl opacity-20">/</div>
                     <div class="flex flex-col">
-                        <span id="seconds" class="ticker-item text-5xl md:text-[10rem] leading-none">00</span>
-                        <span class="text-[10px] font-sans uppercase tracking-[0.3em] mt-4 opacity-50">Sek</span>
+                        <span id="seconds" class="text-5xl md:text-9xl font-serif">00</span>
+                        <span class="text-[10px] uppercase tracking-widest mt-2 opacity-50">Sek</span>
                     </div>
                 </div>
             </div>
 
-            <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12">
-                <!-- Stodola2 vlevo -->
-                <img src="stodola2.jpg" alt="Stodola interiér" class="w-full h-80 object-cover rounded-sm shadow-2xl" data-aos="fade-right">
-                <!-- Stodola (avif) vpravo dole -->
-                <img src="stodola.avif" alt="Stodola exteriér" class="w-full h-80 object-cover rounded-sm shadow-2xl md:mt-24" data-aos="fade-left">
+            <!-- Prohozené fotky: Stodola2 vlevo, Stodola vpravo -->
+            <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12">
+                <img src="stodola2.jpg" alt="Stodola vnitřek" class="w-full h-80 object-cover rounded shadow-2xl">
+                <img src="stodola.avif" alt="Stodola venek" class="w-full h-80 object-cover rounded shadow-2xl md:mt-24">
             </div>
         </div>
     </section>
 
-    <!-- 4. HARMONOGRAM (Airy Design) -->
+    <!-- 4. HARMONOGRAM -->
     <section id="harmonogram" class="py-32 px-6">
         <div class="max-w-4xl mx-auto w-full">
-            <h2 class="font-serif text-6xl md:text-[9rem] text-center mb-32 italic tracking-tighter" data-aos="fade-up">Harmonogram</h2>
+            <h2 class="font-serif text-6xl md:text-[9rem] text-center mb-24 italic tracking-tighter">Harmonogram</h2>
             
-            <div class="space-y-16">
-                <div class="flex items-center group" data-aos="fade-up">
-                    <span class="font-serif text-5xl md:text-[6.5rem] opacity-20 group-hover:opacity-100 transition-opacity italic w-32 md:w-64">13:00</span>
+            <div class="space-y-12">
+                <div class="flex items-center group">
+                    <span class="font-serif text-5xl md:text-8xl opacity-20 italic w-32 md:w-64 transition-opacity group-hover:opacity-100">13:00</span>
                     <div class="flex-grow border-b border-vinova/10 mx-6 mb-2"></div>
-                    <span class="uppercase tracking-[0.2em] text-[11px] font-bold">Sraz hostů</span>
+                    <span class="uppercase tracking-widest text-[11px] font-bold">Sraz hostů</span>
                 </div>
-                <div class="flex items-center group" data-aos="fade-up">
-                    <span class="font-serif text-5xl md:text-[6.5rem] opacity-20 group-hover:opacity-100 transition-opacity italic w-32 md:w-64">14:00</span>
+                <div class="flex items-center group">
+                    <span class="font-serif text-5xl md:text-8xl opacity-20 italic w-32 md:w-64 transition-opacity group-hover:opacity-100">14:00</span>
                     <div class="flex-grow border-b border-vinova/10 mx-6 mb-2"></div>
-                    <span class="uppercase tracking-[0.2em] text-[11px] font-bold">Svatební Obřad</span>
+                    <span class="uppercase tracking-widest text-[11px] font-bold">Obřad</span>
                 </div>
-                <div class="flex items-center group" data-aos="fade-up">
-                    <span class="font-serif text-5xl md:text-[6.5rem] opacity-20 group-hover:opacity-100 transition-opacity italic w-32 md:w-64">16:00</span>
+                <div class="flex items-center group">
+                    <span class="font-serif text-5xl md:text-8xl opacity-20 italic w-32 md:w-64 transition-opacity group-hover:opacity-100">16:00</span>
                     <div class="flex-grow border-b border-vinova/10 mx-6 mb-2"></div>
-                    <span class="uppercase tracking-[0.2em] text-[11px] font-bold">Hostina & Raut</span>
+                    <span class="uppercase tracking-widest text-[11px] font-bold">Hostina & Raut</span>
                 </div>
-                <div class="flex items-center group" data-aos="fade-up">
-                    <span class="font-serif text-5xl md:text-[6.5rem] opacity-20 group-hover:opacity-100 transition-opacity italic w-32 md:w-64">20:00</span>
+                <div class="flex items-center group">
+                    <span class="font-serif text-5xl md:text-8xl opacity-20 italic w-32 md:w-64 transition-opacity group-hover:opacity-100">20:00</span>
                     <div class="flex-grow border-b border-vinova/10 mx-6 mb-2"></div>
-                    <span class="uppercase tracking-[0.2em] text-[11px] font-bold">Party & Foodtruck</span>
+                    <span class="uppercase tracking-widest text-[11px] font-bold">Party</span>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- 5. ADRESA & MAPA -->
-    <section id="misto" class="py-24 border-y border-vinova/5 relative bg-white/20">
+    <section id="misto" class="py-24 border-y border-vinova/5 relative bg-white/30">
         <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-20 items-center">
-            <div data-aos="fade-up">
-                <h2 class="font-serif text-6xl mb-6 italic tracking-tight">Místo konání</h2>
-                <p class="uppercase tracking-[0.25em] text-sm mb-4">Husova 225, Borohrádek</p>
+            <div>
+                <h2 class="font-serif text-6xl mb-6 italic tracking-tight uppercase">Místo konání</h2>
+                <p class="uppercase tracking-widest text-sm mb-4">Husova 225, Borohrádek</p>
                 <div class="h-px w-20 bg-vinova/20 mb-8"></div>
                 <p class="font-light italic text-base opacity-70 leading-relaxed max-w-sm">
-                    Parkování pro hosty je zajištěno přímo v areálu stodoly. Stačí sledovat naše svatební značení.
+                    Parkování pro hosty je zajištěno přímo v areálu stodoly. Stačí sledovat naše svatební značení u cesty.
                 </p>
                 <div class="mt-10">
-                    <a href="https://www.instagram.com/stodolaborohradek/" target="_blank" class="text-[10px] uppercase tracking-[0.4em] border-b border-vinova/30 pb-2 hover:opacity-50 transition italic font-bold">Instagram @stodolaborohradek</a>
+                    <a href="https://www.instagram.com/stodolaborohradek/" target="_blank" class="text-[10px] uppercase tracking-widest border-b border-vinova/30 pb-2 hover:opacity-50 transition italic font-bold">Instagram @stodolaborohradek</a>
                 </div>
             </div>
-            <div class="map-sepia h-[500px] w-full rounded-sm shadow-xl overflow-hidden border border-vinova/5 bg-kremova" data-aos="zoom-in">
+            <div class="map-sepia h-[500px] w-full rounded shadow-xl overflow-hidden border border-vinova/5 bg-kremova">
                 <iframe class="w-full h-full border-0" 
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2558.408764049216!2d16.089018476882655!3d50.10113827150143!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x470e0513d2f9d501%3A0x7d6c6e75e13d5241!2sHusova%20225%2C%20517%2024%20Borohr%C3%A1dek!5e0!3m2!1scs!2scz!4v1710000000000" 
                     allowfullscreen="" loading="lazy"></iframe>
@@ -216,87 +200,86 @@
         </div>
     </section>
 
-    <!-- 6. JÍDLO (Na čem si pochutnáte) -->
+    <!-- 6. JÍDLO -->
     <section id="jidlo" class="py-32 px-6 max-w-6xl mx-auto">
         <div class="grid md:grid-cols-12 gap-16 items-start">
-            <div class="md:col-span-7" data-aos="fade-up">
+            <div class="md:col-span-7">
                 <h2 class="font-serif text-6xl md:text-8xl mb-12 italic leading-tight tracking-tighter">Na čem si pochutnáte</h2>
                 <div class="space-y-6 font-light leading-relaxed text-lg mb-12 italic">
                     <p>Tradiční společný oběd pro úzký okruh neplánujeme – chceme být se všemi hned od začátku.</p>
-                    <p>Raut od <a href="https://www.instagram.com/kampus_catering/" target="_blank" class="font-bold border-b border-vinova/20 hover:opacity-50 transition">Kampus catering</a> začne kolem <span class="font-semibold not-italic text-vinova underline underline-offset-4">14:00</span>.</p>
+                    <p>Raut od <a href="https://www.instagram.com/kampus_catering/" target="_blank" class="font-bold border-b border-vinova/20 hover:opacity-50 transition">Kampus catering</a> začne kolem <span class="font-semibold underline">14:00</span>.</p>
                 </div>
                 
-                <!-- Diferencovaný formát pro komentář -->
-                <div class="bg-vinova text-kremova p-8 rounded-sm mb-12 shadow-lg" data-aos="fade-up">
+                <!-- Jiný formát pro komentář o pozdějším startu -->
+                <div class="bg-vinova text-kremova p-10 rounded shadow-2xl mb-16">
                     <p class="italic text-base leading-relaxed">
                         Protože catering startuje déle, doporučujeme se po cestě k nám zastavit na oběd, ať vám během obřadu nekručí v břiše.
                     </p>
                 </div>
 
-                <div class="grid grid-cols-1 gap-6">
-                    <div class="group border-l border-vinova/20 pl-6 py-2 transition-all hover:border-vinova" data-aos="fade-up">
+                <div class="space-y-8">
+                    <div class="border-l-4 border-vinova/20 pl-8 py-2">
                         <p class="font-bold text-sm uppercase tracking-widest">Den Kostelec n. O. 🍜</p>
                         <p class="text-xs opacity-60 italic">Vietnamská restaurace – doporučujeme Pho Bo Thai.</p>
                     </div>
-                    <div class="group border-l border-vinova/20 pl-6 py-2 transition-all hover:border-vinova" data-aos="fade-up" data-aos-delay="100">
+                    <div class="border-l-4 border-vinova/20 pl-8 py-2">
                         <p class="font-bold text-sm uppercase tracking-widest">Kozlova putyka 🍔</p>
                         <p class="text-xs opacity-60 italic">Burgery a steaky pro pořádný základ.</p>
                     </div>
-                    <div class="group border-l border-vinova/20 pl-6 py-2 transition-all hover:border-vinova" data-aos="fade-up" data-aos-delay="200">
+                    <div class="border-l-4 border-vinova/20 pl-8 py-2">
                         <p class="font-bold text-sm uppercase tracking-widest">Motorest Lípa nad Orlicí 🍴</p>
-                        <p class="text-xs opacity-60 italic italic">Poctivý mastnější základ na party (SMAŽÁK!), jen nečekejte luxus.</p>
+                        <p class="text-xs opacity-60 italic italic">Poctivý mastnější základ na party (SMAŽÁK!).</p>
                     </div>
                 </div>
             </div>
             <div class="md:col-span-5 grid grid-cols-2 gap-4">
-                <img src="jidlo1.png" class="w-full h-64 object-cover rounded-sm shadow-lg" data-aos="fade-up">
-                <img src="jidlo2.png" class="w-full h-48 object-cover rounded-sm shadow-lg mt-8" data-aos="fade-up" data-aos-delay="100">
-                <img src="jidlo3.png" class="w-full h-48 object-cover rounded-sm shadow-lg" data-aos="fade-up" data-aos-delay="200">
-                <img src="jidlo4.png" class="w-full h-64 object-cover rounded-sm shadow-lg -mt-8" data-aos="fade-up" data-aos-delay="300">
+                <img src="jidlo1.png" class="w-full h-64 object-cover rounded shadow-lg">
+                <img src="jidlo2.png" class="w-full h-48 object-cover rounded shadow-lg mt-8">
+                <img src="jidlo3.png" class="w-full h-48 object-cover rounded shadow-lg">
+                <img src="jidlo4.png" class="w-full h-64 object-cover rounded shadow-lg -mt-8">
             </div>
         </div>
     </section>
 
-    <!-- 7. UBYTOVÁNÍ (With Links) -->
+    <!-- 7. UBYTOVÁNÍ -->
     <section id="ubytovani" class="bg-vinova text-kremova py-32 px-6">
         <div class="max-w-6xl mx-auto">
-            <h2 class="font-serif text-6xl md:text-[8rem] italic mb-16 tracking-tighter italic" data-aos="fade-up">Ubytování</h2>
+            <h2 class="font-serif text-6xl md:text-[8rem] italic mb-16 tracking-tighter uppercase">Ubytování</h2>
             <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-20">
-                <img src="ubytovani_chatky.avif" class="w-full h-72 object-cover rounded-sm" data-aos="fade-up">
-                <img src="ubytovani_chatky2.avif" class="w-full h-72 object-cover rounded-sm md:mt-12" data-aos="fade-up" data-aos-delay="100">
-                <img src="ubytovani_stodola.avif" class="w-full h-72 object-cover rounded-sm" data-aos="fade-up" data-aos-delay="200">
-                <img src="ubytovani_stodola2.avif" class="w-full h-72 object-cover rounded-sm md:mt-12" data-aos="fade-up" data-aos-delay="300">
+                <img src="ubytovani_chatky.avif" class="w-full h-72 object-cover rounded">
+                <img src="ubytovani_chatky2.avif" class="w-full h-72 object-cover rounded md:mt-12">
+                <img src="ubytovani_stodola.avif" class="w-full h-72 object-cover rounded">
+                <img src="ubytovani_stodola2.avif" class="w-full h-72 object-cover rounded md:mt-12">
             </div>
-            <div class="max-w-4xl pt-16 border-t border-kremova/10 text-lg font-light italic opacity-90 leading-relaxed space-y-8" data-aos="fade-up">
+            <div class="max-w-4xl pt-16 border-t border-kremova/10 text-lg font-light italic leading-relaxed space-y-10">
                 <p>Spaní v areálu stodoly (v chatkách či světnici) je zajištěno.</p>
-                <div class="bg-white/5 p-8 rounded-sm">
-                    <p class="text-base mb-6 opacity-100 font-normal">Z ubytování v okolí pro větší komfort můžete vybrat např.:</p>
-                    <ul class="space-y-4 text-sm font-sans not-italic uppercase tracking-widest">
-                        <li><a href="https://www.avepo.cz/" target="_blank" class="underline underline-offset-4 hover:text-white transition decoration-white/30">• Avepo Borohrádek</a></li>
-                        <li><a href="https://www.motorest-roubenka.cz/" target="_blank" class="underline underline-offset-4 hover:text-white transition decoration-white/30">• Motorest Roubenka Týniště</a></li>
-                        <li><a href="https://www.apartmanytyniste.cz/" target="_blank" class="underline underline-offset-4 hover:text-white transition decoration-white/30">• Apartmány Týniště</a></li>
+                <div class="bg-white/5 p-10 rounded">
+                    <p class="text-base mb-6 font-semibold uppercase tracking-widest">Tipy na ubytování v okolí pro větší komfort:</p>
+                    <ul class="space-y-4 text-sm font-sans not-italic uppercase tracking-widest underline underline-offset-8">
+                        <li><a href="https://www.avepo.cz/" target="_blank" class="hover:text-white transition decoration-white/30">• Avepo Borohrádek</a></li>
+                        <li><a href="https://www.motorest-roubenka.cz/" target="_blank" class="hover:text-white transition decoration-white/30">• Motorest Roubenka Týniště</a></li>
+                        <li><a href="https://www.apartmanytyniste.cz/" target="_blank" class="hover:text-white transition decoration-white/30">• Apartmány Týniště</a></li>
                     </ul>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 8. DARY & BARVY (No logo in Gifts) -->
+    <!-- 8. DARY & BARVY -->
     <section id="dary" class="py-40 px-6 max-w-6xl mx-auto grid md:grid-cols-2 gap-32 items-center">
-        <div data-aos="fade-right">
-            <h2 class="font-serif text-6xl mb-10 italic">Svatební dary</h2>
-            <p class="text-xl font-light italic opacity-80 leading-relaxed mb-8 italic">
+        <div>
+            <h2 class="font-serif text-6xl mb-10 italic uppercase">Svatební dary</h2>
+            <p class="text-xl font-light italic opacity-80 leading-relaxed mb-8">
                 Vaše přítomnost je pro nás tím největším darem. Pokud byste nás však přesto chtěli obdarovat, budeme vděční za finanční příspěvek na líbánky.
             </p>
         </div>
-        
-        <div data-aos="fade-left" class="flex flex-col items-center md:items-start text-center md:text-left">
-            <h2 class="font-serif text-6xl mb-12 italic">Barvy svatby</h2>
+        <div class="flex flex-col items-center md:items-start text-center md:text-left">
+            <h2 class="font-serif text-6xl mb-12 italic uppercase">Barvy svatby</h2>
             <div class="flex space-x-12 mb-12">
                 <div class="text-center group"><div class="w-24 h-24 rounded-full bg-vinova shadow-2xl mb-4 transition transform group-hover:scale-110"></div><p class="text-[10px] uppercase tracking-widest opacity-50 font-bold">Vínová</p></div>
                 <div class="text-center group"><div class="w-24 h-24 rounded-full bg-kremova shadow-2xl mb-4 border border-vinova/20 transition transform group-hover:scale-110"></div><p class="text-[10px] uppercase tracking-widest opacity-50 font-bold">Piškotová</p></div>
             </div>
-            <p class="text-sm font-light italic opacity-60 leading-relaxed">
+            <p class="text-sm font-light italic opacity-60 leading-relaxed max-w-sm">
                 Když se s námi barevně sladíte, budeme moc rádi, ale samozřejmě to není povinné – nejdůležitější je, abyste se cítili dobře.
             </p>
         </div>
@@ -305,16 +288,41 @@
     <!-- 9. PATIČKA -->
     <footer class="bg-vinova text-kremova pt-32 pb-16 px-6">
         <div class="max-w-7xl mx-auto">
-            <div class="flex flex-col md:flex-row justify-between items-center mb-24 gap-12 text-kremova">
+            <div class="flex flex-col md:flex-row justify-between items-center mb-24 gap-12">
                 <div class="text-center md:text-left">
-                    <p class="opacity-40 uppercase tracking-[0.3em] text-[8px] mb-3">Nevěsta Anička</p>
+                    <p class="opacity-30 uppercase tracking-[0.3em] text-[8px] mb-3 font-semibold">Nevěsta Anička</p>
                     <p class="font-medium text-sm tracking-widest">+420 604 616 637</p>
                 </div>
-
-                <div data-aos="zoom-in">
-                    <img src="logo_bcg.png" alt="Logo" class="h-32 md:h-56 w-auto brightness-0 invert opacity-90">
-                </div>
-
+                <img src="logo_bcg.png" alt="Logo" class="h-40 md:h-56 w-auto brightness-0 invert opacity-90">
                 <div class="text-center md:text-right">
-                    <p class="opacity-40 uppercase tracking-[0.3em] text-[8px] mb-3">Ženich Martin</p>
-                    <p class="font-medium text-sm tracking-widest">+420 735 000 998</p
+                    <p class="opacity-30 uppercase tracking-[0.3em] text-[8px] mb-3 font-semibold">Ženich Martin</p>
+                    <p class="font-medium text-sm tracking-widest">+420 735 000 998</p>
+                </div>
+            </div>
+            <p class="text-center text-[9px] opacity-10 uppercase tracking-[1em] mt-10">Anička & Martin • 2026</p>
+        </div>
+    </footer>
+
+    <script>
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 80) { navbar.classList.add('scrolled'); } 
+            else { navbar.classList.remove('scrolled'); }
+        });
+
+        function toggleMenu() { document.getElementById('mobileMenu').classList.toggle('hidden'); }
+        document.getElementById('menuBtn').addEventListener('click', toggleMenu);
+
+        const targetDate = new Date("June 6, 2026 14:00:00").getTime();
+        setInterval(() => {
+            const now = new Date().getTime();
+            const dist = targetDate - now;
+            if (dist < 0) return;
+            document.getElementById("days").innerText = Math.floor(dist / (1000 * 60 * 60 * 24)).toString().padStart(2, '0');
+            document.getElementById("hours").innerText = Math.floor((dist % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)).toString().padStart(2, '0');
+            document.getElementById("minutes").innerText = Math.floor((dist % (1000 * 60 * 60)) / (1000 * 60)).toString().padStart(2, '0');
+            document.getElementById("seconds").innerText = Math.floor((dist % (1000 * 60)) / 1000).toString().padStart(2, '0');
+        }, 1000);
+    </script>
+</body>
+</html>
