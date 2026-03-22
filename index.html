@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Anička & Martin | 6. 6. 2026</title>
+    <title>Svatba Anička & Martin | 6. 6. 2026</title>
     
     <!-- Google Fonts s plnou podporou češtiny -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,400;1,700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;1,400&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -24,7 +24,7 @@
                     fontFamily: {
                         serif: ['Playfair Display', 'serif'],
                         sans: ['Montserrat', 'sans-serif'],
-                        display: ['Cormorant Garamond', 'serif'],
+                        h1: ['Lora', 'serif'],
                     }
                 }
             }
@@ -57,16 +57,21 @@
         /* Countdown Ticker */
         .ticker-item { transition: all 0.5s ease; display: inline-block; }
 
-        /* Globální styl pro nadpisy sekcí H2 */
+        /* STRIKTNĚ SJEDNOCENÉ NADPISY H2 */
         .h2-unified {
             font-family: 'Playfair Display', serif;
-            font-size: 3rem;
+            font-size: 3.5rem; /* Odpovídá text-6xl/7xl */
             font-style: italic;
+            line-height: 1.1;
             margin-bottom: 3rem;
-            letter-spacing: -0.02em;
+            letter-spacing: -0.01em;
+            text-transform: none;
+        }
+        @media (max-width: 768px) {
+            .h2-unified { font-size: 2.5rem; }
         }
 
-        /* Globální styl pro odstavce */
+        /* STRIKTNĚ SJEDNOCENÉ ODSTAVCE */
         .p-unified {
             font-family: 'Montserrat', sans-serif;
             font-size: 1.125rem;
@@ -145,14 +150,13 @@
         </div>
     </nav>
 
-    <!-- 2. HERO SEKCE (H1 upraveno) -->
+    <!-- 2. HERO SEKCE -->
     <section class="relative h-screen flex items-center justify-center overflow-hidden">
         <img src="am_foto.png" alt="Anička a Martin" class="absolute inset-0 w-full h-full object-cover">
         <div class="absolute inset-0 bg-black/15"></div>
         
         <div class="relative text-center text-white px-4 fade-in">
-            <!-- H1 s Cormorant Garamond pro krásné & -->
-            <h1 class="font-display italic font-normal text-6xl md:text-[9rem] leading-none mb-8 tracking-tight">Svatba A & M</h1>
+            <h1 class="font-h1 font-normal text-6xl md:text-[8rem] leading-none mb-8 tracking-tight">Svatba A & M</h1>
             
             <div class="flex items-center justify-center space-x-4 md:space-x-8">
                 <div class="h-px w-8 md:w-16 bg-white/40"></div>
@@ -165,7 +169,7 @@
     <!-- 3. ODPOČET & ATMOSFÉRA -->
     <section class="bg-vinova text-kremova py-24 relative z-10">
         <div class="max-w-6xl mx-auto px-6 text-center">
-            <h2 class="h2-unified text-kremova md:text-7xl">Už se to blíží...</h2>
+            <h2 class="h2-unified text-kremova">Už se to blíží...</h2>
             
             <div id="countdown" class="flex justify-center items-center space-x-4 md:space-x-12 mb-24">
                 <div class="flex flex-col">
@@ -203,7 +207,7 @@
     <!-- 4. HARMONOGRAM -->
     <section id="harmonogram" class="py-32 px-6 bg-kremova">
         <div class="max-w-4xl mx-auto w-full">
-            <h2 class="h2-unified text-center md:text-[8rem]">Harmonogram</h2>
+            <h2 class="h2-unified text-center">Harmonogram</h2>
             
             <div class="space-y-12">
                 <div class="flex items-center group transition-all duration-500 hover:scale-[1.02] cursor-default">
@@ -224,7 +228,7 @@
                 <div class="flex items-center group transition-all duration-500 hover:scale-[1.02] cursor-default">
                     <span class="font-serif text-5xl md:text-8xl opacity-10 italic w-32 md:w-64 transition-all duration-500 group-hover:opacity-100 group-hover:text-vinova">16:00</span>
                     <div class="flex-grow border-b border-vinova/10 mx-6 mb-2 group-hover:border-vinova/30 transition-colors"></div>
-                    <span class="uppercase tracking-[0.2em] text-[11px] font-bold group-hover:tracking-[0.4em] transition-all duration-500">Grilování</span>
+                    <span class="uppercase tracking-[0.2em] text-[11px] font-bold group-hover:tracking-[0.4em] transition-all duration-500">Grilování ve food trucku</span>
                 </div>
                 <div class="flex items-center group transition-all duration-500 hover:scale-[1.02] cursor-default">
                     <span class="font-serif text-5xl md:text-8xl opacity-10 italic w-32 md:w-64 transition-all duration-500 group-hover:opacity-100 group-hover:text-vinova">18:00</span>
@@ -234,7 +238,7 @@
                 <div class="flex items-center group transition-all duration-500 hover:scale-[1.02] cursor-default">
                     <span class="font-serif text-5xl md:text-8xl opacity-10 italic w-32 md:w-64 transition-all duration-500 group-hover:opacity-100 group-hover:text-vinova">20:00</span>
                     <div class="flex-grow border-b border-vinova/10 mx-6 mb-2 group-hover:border-vinova/30 transition-colors"></div>
-                    <span class="uppercase tracking-[0.2em] text-[11px] font-bold group-hover:tracking-[0.4em] transition-all duration-500">Prskavky</span>
+                    <span class="uppercase tracking-[0.2em] text-[11px] font-bold group-hover:tracking-[0.4em] transition-all duration-500">Tanec s prskavkami</span>
                 </div>
             </div>
         </div>
@@ -244,7 +248,7 @@
     <section id="misto" class="py-24 border-y border-vinova/5 bg-white/30">
         <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-20 items-center">
             <div>
-                <h2 class="h2-unified md:text-6xl uppercase tracking-tighter">Místo konání</h2>
+                <h2 class="h2-unified">Místo konání</h2>
                 <p class="poi-title mb-4">Husova 225, Borohrádek</p>
                 <div class="h-px w-20 bg-vinova/20 mb-8"></div>
                 <p class="p-unified max-w-sm">
@@ -262,14 +266,13 @@
         </div>
     </section>
 
-    <!-- 6. JÍDLO (Cik-Cak) -->
+    <!-- 6. JÍDLO -->
     <section id="jidlo" class="py-32 px-6 bg-kremova overflow-hidden">
         <div class="max-w-6xl mx-auto space-y-32">
-            
             <!-- BLOK 1: Hlavní text + Fotky jídla -->
             <div class="grid md:grid-cols-2 gap-16 items-center">
                 <div class="space-y-8">
-                    <h2 class="h2-unified md:text-7xl">Na čem si pochutnáte</h2>
+                    <h2 class="h2-unified">Na čem si pochutnáte</h2>
                     <div class="space-y-6">
                         <p class="p-unified">Tradiční společný oběd pro úzký okruh neplánujeme – chceme být se všemi hned od začátku.</p>
                         <p class="p-unified">Raut od <span class="font-bold underline underline-offset-8 decoration-vinova/20">Kampus catering</span> začne kolem <span class="font-bold not-italic">14:00</span>.</p>
@@ -310,10 +313,10 @@
         </div>
     </section>
 
-    <!-- 7. UBYTOVÁNÍ (Cik-Cak) -->
+    <!-- 7. UBYTOVÁNÍ -->
     <section id="ubytovani" class="bg-vinova text-kremova py-32 px-6">
         <div class="max-w-6xl mx-auto space-y-24">
-            <h2 class="h2-unified text-center md:text-8xl text-kremova">Ubytování</h2>
+            <h2 class="h2-unified text-center text-kremova">Ubytování</h2>
             
             <!-- BLOK 1: Text o Stodole + 2 Fotky -->
             <div class="grid md:grid-cols-2 gap-16 items-center">
@@ -359,14 +362,14 @@
     <section id="dary" class="py-40 px-6 max-w-6xl mx-auto">
         <div class="grid lg:grid-cols-2 gap-24 items-start">
             <div class="text-center lg:text-left">
-                <h2 class="h2-unified md:text-6xl">Svatební dary</h2>
+                <h2 class="h2-unified">Svatební dary</h2>
                 <p class="p-unified opacity-80 max-w-md mx-auto lg:mx-0">
                     Vaše přítomnost je pro nás největším darem. Pokud nás přesto chcete obdarovat, budeme vděční za finanční příspěvek na líbánky.
                 </p>
             </div>
             
             <div class="flex flex-col items-center lg:items-start">
-                <h2 class="h2-unified md:text-6xl">Barvy svatby</h2>
+                <h2 class="h2-unified">Barvy svatby</h2>
                 <div class="flex space-x-12 mb-8 pt-2">
                     <div class="text-center group">
                         <div class="w-20 h-20 rounded-full bg-vinova shadow-2xl mb-4 transition transform group-hover:scale-110"></div>
@@ -388,7 +391,7 @@
     <footer class="bg-vinova text-kremova pt-32 pb-16 px-6 text-center">
         <p class="font-serif text-3xl md:text-5xl italic mb-12 opacity-90">Těšíme se na vás!</p>
         
-        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center mb-24 gap-12">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center mb-24 gap-12 text-kremova">
             <div class="text-center md:text-left">
                 <p class="poi-title text-kremova/30 mb-3">Nevěsta Anička</p>
                 <p class="font-sans font-medium text-sm tracking-widest">+420 604 616 637</p>
@@ -399,7 +402,7 @@
                 <p class="font-sans font-medium text-sm tracking-widest">+420 735 000 998</p>
             </div>
         </div>
-        <p class="poi-desc text-kremova/20 uppercase tracking-[1em] mt-10">Anička & Martin • 2026</p>
+        <p class="poi-desc text-kremova/20 uppercase tracking-[1em] mt-10 italic">Anička & Martin • 2026</p>
     </footer>
 
     <script>
