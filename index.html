@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="cs" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anička & Martin — Svatební web</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Playfair Display (Nadpisy) & Inter (Text) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        weddingRed: '#590303',
+                        weddingBeige: '#F8F6F2',
+                    },
+                    fontFamily: {
+                        serif: ['"Playfair Display"', 'serif'],
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #F8F6F2;
+            color: #590303;
+            font-family: 'Inter', sans-serif;
+        }
+        .hero-shadow {
+            box-shadow: 0 20px 50px rgba(89, 3, 3, 0.1);
+        }
+        .fade-in {
+            animation: fadeIn 1.5s ease-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- HERO SEKCE -->
+    <section class="min-h-screen flex flex-col items-center justify-center px-6 py-12 md:py-20 overflow-hidden">
+        <div class="max-w-5xl w-full text-center fade-in">
+            <!-- Hero Image -->
+            <div class="relative mb-12 group">
+                <div class="aspect-[4/5] md:aspect-[16/9] overflow-hidden rounded-2xl hero-shadow mx-auto max-w-4xl">
+                    <img src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?q=80&w=2000&auto=format&fit=crop" 
+                         alt="Anička a Martin" 
+                         class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                </div>
+            </div>
+
+            <!-- Names & Info -->
+            <h1 class="font-serif text-5xl md:text-8xl mb-4 tracking-tight">Anička & Martin</h1>
+            <div class="w-24 h-px bg-weddingRed mx-auto mb-6 opacity-30"></div>
+            <p class="text-xl md:text-2xl uppercase tracking-[0.3em] font-light mb-2">6. června 2026</p>
+            <p class="text-lg md:text-xl italic font-serif">Stodola Borohrádek</p>
+        </div>
+    </section>
+
+    <!-- ODPOČET (COUNTDOWN) -->
+    <section class="py-20 bg-white/50 border-y border-weddingRed/10">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <h2 class="font-serif text-3xl mb-10 italic">Už jen...</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                <div class="flex flex-col">
+                    <span id="days" class="text-4xl md:text-6xl font-light">00</span>
+                    <span class="text-xs uppercase tracking-widest mt-2">Dní</span>
+                </div>
+                <div class="flex flex-col">
+                    <span id="hours" class="text-4xl md:text-6xl font-light">00</span>
+                    <span class="text-xs uppercase tracking-widest mt-2">Hodin</span>
+                </div>
+                <div class="flex flex-col">
+                    <span id="minutes" class="text-4xl md:text-6xl font-light">00</span>
+                    <span class="text-xs uppercase tracking-widest mt-2">Minut</span>
+                </div>
+                <div class="flex flex-col">
+                    <span id="seconds" class="text-4xl md:text-6xl font-light">00</span>
+                    <span class="text-xs uppercase tracking-widest mt-2">Sekund</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- HARMONOGRAM (TIMELINE) -->
+    <section class="py-24 px-6">
+        <div class="max-w-3xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="font-serif text-4xl md:text-5xl mb-4">Časový harmonogram</h2>
+                <p class="text-sm uppercase tracking-widest opacity-60">Průběh našeho dne</p>
+            </div>
+
+            <div class="space-y-12">
+                <!-- Item 1 -->
+                <div class="flex gap-6 md:gap-10 items-start">
+                    <div class="text-right w-20 pt-1 shrink-0">
+                        <span class="font-serif italic text-lg text-weddingRed/60">13:00</span>
+                    </div>
+                    <div class="relative pt-1">
+                        <div class="w-3 h-3 bg-weddingRed rounded-full mb-4"></div>
+                        <div class="absolute top-3 left-[5px] w-px h-[calc(100%+3rem)] bg-weddingRed/20"></div>
+                    </div>
+                    <div>
+                        <h3 class="font-serif text-xl mb-1">Příjezd hostů</h3>
+                        <p class="text-sm font-light leading-relaxed opacity-80">Uvítání v areálu Stodoly, drobné občerstvení a Welcome drink před obřadem.</p>
+                    </div>
+                </div>
+
+                <!-- Item 2 -->
+                <div class="flex gap-6 md:gap-10 items-start">
+                    <div class="text-right w-20 pt-1 shrink-0">
+                        <span class="font-serif italic text-lg text-weddingRed/60">14:00</span>
+                    </div>
+                    <div class="relative pt-1">
+                        <div class="w-3 h-3 bg-weddingRed rounded-full mb-4"></div>
+                        <div class="absolute top-3 left-[5px] w-px h-[calc(100%+3rem)] bg-weddingRed/20"></div>
+                    </div>
+                    <div>
+                        <h3 class="font-serif text-xl mb-1">Svatební obřad</h3>
+                        <p class="text-sm font-light leading-relaxed opacity-80">Řekneme si své "ano" pod širým nebem v zahradě pod vzrostlými duby.</p>
+                    </div>
+                </div>
+
+                <!-- Item 3 -->
+                <div class="flex gap-6 md:gap-10 items-start">
+                    <div class="text-right w-20 pt-1 shrink-0">
+                        <span class="font-serif italic text-lg text-weddingRed/60">15:00</span>
+                    </div>
+                    <div class="relative pt-1">
+                        <div class="w-3 h-3 bg-weddingRed rounded-full mb-4"></div>
+                        <div class="absolute top-3 left-[5px] w-px h-[calc(100%+3rem)] bg-weddingRed/20"></div>
+                    </div>
+                    <div>
+                        <h3 class="font-serif text-xl mb-1">Gratulace a focení</h3>
+                        <p class="text-sm font-light leading-relaxed opacity-80">Společné focení s rodinou a přáteli doprovázené živou hudbou.</p>
+                    </div>
+                </div>
+
+                <!-- Item 4 -->
+                <div class="flex gap-6 md:gap-10 items-start">
+                    <div class="text-right w-20 pt-1 shrink-0">
+                        <span class="font-serif italic text-lg text-weddingRed/60">16:30</span>
+                    </div>
+                    <div class="relative pt-1">
+                        <div class="w-3 h-3 bg-weddingRed rounded-full mb-4"></div>
+                        <div class="absolute top-3 left-[5px] w-px h-[calc(100%+3rem)] bg-weddingRed/20"></div>
+                    </div>
+                    <div>
+                        <h3 class="font-serif text-xl mb-1">Svatební hostina</h3>
+                        <p class="text-sm font-light leading-relaxed opacity-80">Tradiční oběd formou rautu s výběrem toho nejlepšího z lokální kuchyně.</p>
+                    </div>
+                </div>
+
+                <!-- Item 5 -->
+                <div class="flex gap-6 md:gap-10 items-start">
+                    <div class="text-right w-20 pt-1 shrink-0">
+                        <span class="font-serif italic text-lg text-weddingRed/60">19:00</span>
+                    </div>
+                    <div class="relative pt-1">
+                        <div class="w-3 h-3 bg-weddingRed rounded-full mb-4"></div>
+                        <div class="absolute top-3 left-[5px] w-px h-[calc(100%+3rem)] bg-weddingRed/20"></div>
+                    </div>
+                    <div>
+                        <h3 class="font-serif text-xl mb-1">První tanec</h3>
+                        <p class="text-sm font-light leading-relaxed opacity-80">Zahájení večerní zábavy a krájení svatebního dortu.</p>
+                    </div>
+                </div>
+
+                <!-- Item 6 -->
+                <div class="flex gap-6 md:gap-10 items-start">
+                    <div class="text-right w-20 pt-1 shrink-0">
+                        <span class="font-serif italic text-lg text-weddingRed/60">20:30</span>
+                    </div>
+                    <div class="relative pt-1">
+                        <div class="w-3 h-3 bg-weddingRed rounded-full"></div>
+                    </div>
+                    <div>
+                        <h3 class="font-serif text-xl mb-1">Party a DJ</h3>
+                        <p class="text-sm font-light leading-relaxed opacity-80">Tanec až do ranních hodin, fotokoutek a večerní grilování.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- UBYTOVÁNÍ -->
+    <section class="py-24 bg-weddingRed text-weddingBeige">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="font-serif text-4xl md:text-5xl mb-4">Ubytování</h2>
+                <p class="text-sm uppercase tracking-[0.3em] opacity-70">Kde si po oslavě odpočinout</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Room 1 -->
+                <div class="space-y-4 group">
+                    <div class="aspect-square overflow-hidden rounded-lg">
+                        <img src="https://images.unsplash.com/photo-1566665797739-1674de7a421a?q=80&w=800&auto=format&fit=crop" alt="Pokoj 1" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    </div>
+                    <h4 class="font-serif text-xl">Hlavní stodola</h4>
+                    <p class="text-sm opacity-70 leading-relaxed text-weddingBeige/80">Přímo v areálu nabízíme 10 stylových pokojů pro nejbližší rodinu.</p>
+                </div>
+
+                <!-- Room 2 -->
+                <div class="space-y-4 group">
+                    <div class="aspect-square overflow-hidden rounded-lg">
+                        <img src="https://images.unsplash.com/photo-1590490359683-658d3d23f972?q=80&w=800&auto=format&fit=crop" alt="Pokoj 2" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    </div>
+                    <h4 class="font-serif text-xl">Penzion U lesa</h4>
+                    <p class="text-sm opacity-70 leading-relaxed text-weddingBeige/80">Penzion vzdálený 500m od stodoly, ideální pro skupiny přátel.</p>
+                </div>
+
+                <!-- Room 3 -->
+                <div class="space-y-4 group">
+                    <div class="aspect-square overflow-hidden rounded-lg">
+                        <img src="https://images.unsplash.com/photo-1520277739336-7bf67edfa768?q=80&w=800&auto=format&fit=crop" alt="Pokoj 3" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    </div>
+                    <h4 class="font-serif text-xl">Glamping stany</h4>
+                    <p class="text-sm opacity-70 leading-relaxed text-weddingBeige/80">Pro milovníky přírody máme připraveny komfortní stany v zahradě.</p>
+                </div>
+
+                <!-- Room 4 -->
+                <div class="space-y-4 group">
+                    <div class="aspect-square overflow-hidden rounded-lg">
+                        <img src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?q=80&w=800&auto=format&fit=crop" alt="Pokoj 4" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    </div>
+                    <h4 class="font-serif text-xl">Hotel Borohrádek</h4>
+                    <p class="text-sm opacity-70 leading-relaxed text-weddingBeige/80">Klasické ubytování v centru obce s dojezdem 3 minuty autem.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MAPA -->
+    <section class="py-24 px-6">
+        <div class="max-w-5xl mx-auto">
+            <div class="text-center mb-12">
+                <i data-lucide="map-pin" class="mx-auto mb-4 w-8 h-8 opacity-40"></i>
+                <h2 class="font-serif text-4xl mb-2">Kde nás najdete</h2>
+                <p class="font-light opacity-60">Stodola Borohrádek, 517 24 Borohrádek</p>
+            </div>
+            
+            <div class="rounded-3xl overflow-hidden shadow-2xl h-[450px] border border-weddingRed/5">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2558.125272370776!2d16.085521776953047!3d50.09337581351187!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x470c29415891392f%3A0xe54e207936a29774!2sStodola%20Borohr%C3%A1dek!5e0!3m2!1scs!2scz!4v1709450000000!5m2!1scs!2scz" 
+                    class="w-full h-full" 
+                    style="border:0;" 
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+        </div>
+    </section>
