@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Anička & Martin | annanke.cz</title>
+    <title>Anička & Martin | Svatba</title>
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -19,8 +19,7 @@
                 extend: {
                     colors: {
                         'vinova': '#590303',
-                        'kremova': '#F8F6F2',
-                        'ruzova': '#D4A373',
+                        'kremova': '#F8F6F2', // Piškotová
                     },
                     fontFamily: {
                         serif: ['Cormorant Garamond', 'serif'],
@@ -32,12 +31,7 @@
     </script>
 
     <style>
-        .grayscale-map {
-            filter: grayscale(100%) invert(5%) contrast(90%);
-        }
-        .hero-overlay {
-            background: rgba(0, 0, 0, 0.25);
-        }
+        .hero-overlay { background: rgba(0, 0, 0, 0.2); }
         .timeline-line::before {
             content: '';
             position: absolute;
@@ -47,85 +41,94 @@
             background-color: #590303;
             transform: translateX(-50%);
         }
-        @media (max-width: 768px) {
-            .timeline-line::before { left: 20px; }
-        }
+        @media (max-width: 768px) { .timeline-line::before { left: 20px; } }
         .no-scrollbar::-webkit-scrollbar { display: none; }
         .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        
+        /* Zajištění, aby se fotky v gridu nedeformovaly a neřezaly */
+        .photo-natural {
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+        }
     </style>
 </head>
 <body class="bg-kremova text-vinova font-sans overflow-x-hidden">
 
     <!-- 1. NAVIGACE -->
-    <nav class="fixed w-full z-50 bg-kremova/90 backdrop-blur-md border-b border-vinova/10">
-        <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#" class="font-serif text-2xl font-semibold tracking-widest uppercase">Svatba A&M</a>
+    <nav class="fixed w-full z-50 bg-kremova/95 backdrop-blur-sm border-b border-vinova/10 px-6 py-4">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <a href="#" class="font-serif text-xl md:text-2xl font-semibold tracking-widest uppercase">Svatba A&M</a>
             
             <div class="hidden md:flex space-x-8 text-[11px] uppercase tracking-[0.2em] font-medium">
-                <a href="#misto" class="hover:text-ruzova transition">Místo konání</a>
-                <a href="#ubytovani" class="hover:text-ruzova transition">Ubytování</a>
-                <a href="#dary" class="hover:text-ruzova transition">Dresscode a dary</a>
+                <a href="#misto" class="hover:opacity-50 transition">Místo konání</a>
+                <a href="#harmonogram" class="hover:opacity-50 transition">Harmonogram</a>
+                <a href="#ubytovani" class="hover:opacity-50 transition">Ubytování</a>
+                <a href="#dary" class="hover:opacity-50 transition">Svatební dary</a>
             </div>
 
-            <button id="menuBtn" class="md:hidden text-vinova">
+            <button id="menuBtn" class="md:hidden">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
                 </svg>
             </button>
         </div>
-        <div id="mobileMenu" class="hidden md:hidden bg-kremova border-b border-vinova/10 flex flex-col p-6 space-y-4 text-center uppercase tracking-widest text-xs">
+        <div id="mobileMenu" class="hidden flex flex-col pt-6 pb-4 space-y-4 text-center uppercase tracking-widest text-xs">
             <a href="#misto" onclick="toggleMenu()">Místo konání</a>
+            <a href="#harmonogram" onclick="toggleMenu()">Harmonogram</a>
             <a href="#ubytovani" onclick="toggleMenu()">Ubytování</a>
-            <a href="#dary" onclick="toggleMenu()">Dresscode a dary</a>
+            <a href="#dary" onclick="toggleMenu()">Svatební dary</a>
         </div>
     </nav>
 
     <!-- 2. HERO -->
-    <section class="relative h-screen flex items-center justify-center overflow-hidden">
+    <section class="relative h-screen flex items-center justify-center">
         <img src="am_foto.png" alt="Anička a Martin" class="absolute inset-0 w-full h-full object-cover">
         <div class="absolute inset-0 hero-overlay"></div>
         <div class="relative text-center text-white px-4">
-            <h1 class="font-serif text-6xl md:text-9xl mb-4 opacity-0 animate-[fade-in_1.5s_ease-out_forwards]">Svatba A&M</h1>
+            <h1 class="font-serif text-6xl md:text-9xl mb-4">Svatba A&M</h1>
             <p class="text-lg md:text-xl uppercase tracking-[0.4em] font-light italic">6. Června 2026</p>
         </div>
     </section>
 
     <!-- 3. ODPOČET & INFO -->
     <section class="bg-vinova text-kremova py-20 px-6">
-        <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-center">
-            <div class="order-2 md:order-1">
-                <h2 class="font-serif text-3xl md:text-5xl mb-6 italic leading-tight">Sobota, 6. 6. 2026 <br> Stodola Borohrádek</h2>
+        <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+            <div>
+                <h2 class="font-serif text-4xl md:text-6xl mb-8 italic leading-tight">Sobota, 6. 6. 2026 <br> Stodola Borohrádek</h2>
                 
-                <div id="countdown" class="flex space-x-6 md:space-x-10 mt-12">
-                    <div class="text-center">
-                        <span id="days" class="block text-4xl md:text-6xl font-serif">00</span>
+                <div id="countdown" class="flex space-x-6 md:space-x-12 mt-12 mb-10 text-center md:text-left">
+                    <div>
+                        <span id="days" class="block text-4xl md:text-7xl font-serif">00</span>
                         <span class="text-[10px] uppercase tracking-widest opacity-60">Dny</span>
                     </div>
-                    <div class="text-center border-l border-kremova/20 pl-6 md:pl-10">
-                        <span id="hours" class="block text-4xl md:text-6xl font-serif">00</span>
+                    <div>
+                        <span id="hours" class="block text-4xl md:text-7xl font-serif">00</span>
                         <span class="text-[10px] uppercase tracking-widest opacity-60">Hod</span>
                     </div>
-                    <div class="text-center border-l border-kremova/20 pl-6 md:pl-10">
-                        <span id="minutes" class="block text-4xl md:text-6xl font-serif">00</span>
+                    <div>
+                        <span id="minutes" class="block text-4xl md:text-7xl font-serif">00</span>
                         <span class="text-[10px] uppercase tracking-widest opacity-60">Min</span>
                     </div>
-                    <div class="text-center border-l border-kremova/20 pl-6 md:pl-10">
-                        <span id="seconds" class="block text-4xl md:text-6xl font-serif">00</span>
+                    <div>
+                        <span id="seconds" class="block text-4xl md:text-7xl font-serif">00</span>
                         <span class="text-[10px] uppercase tracking-widest opacity-60">Sek</span>
                     </div>
                 </div>
+
+                <a href="https://www.instagram.com/stodolaborohradek/" target="_blank" class="inline-flex items-center space-x-2 border-b border-kremova/40 pb-1 hover:opacity-70 transition uppercase tracking-widest text-[10px]">
+                    <span>Prozkoumat místo na Instagramu</span>
+                    <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                </a>
             </div>
 
-            <div class="order-1 md:order-2 flex flex-col items-center md:items-end text-center md:text-right">
-                <div class="mb-8">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/d/d4/Wedding_rings_icon.svg" class="w-12 h-12 invert opacity-80" alt="Prstýnky">
-                </div>
-                <p class="text-lg font-light leading-relaxed max-w-md italic mb-10">
+            <div class="flex flex-col items-center md:items-end">
+                <p class="text-xl font-light italic text-center md:text-right max-w-md mb-12">
                     "8 let společné cesty nás dovedlo až k tomuto dni. Budeme moc rádi, když u toho budete s námi."
                 </p>
-                <div class="grid grid-cols-2 gap-4 w-full max-w-md">
-                    <img src="stodola.avif" alt="Stodola exteriér" class="w-full h-48 object-cover rounded-sm shadow-2xl">
-                    <img src="stodola2.avif" alt="Stodola interiér" class="w-full h-48 object-cover rounded-sm shadow-2xl mt-8">
+                <div class="space-y-6 w-full max-w-lg">
+                    <img src="stodola.avif" alt="Stodola exteriér" class="w-full h-auto rounded-sm shadow-2xl">
+                    <img src="stodola2.avif" alt="Stodola interiér" class="w-full h-auto rounded-sm shadow-2xl md:ml-[-10%]">
                 </div>
             </div>
         </div>
@@ -133,192 +136,184 @@
 
     <!-- 4. HARMONOGRAM -->
     <section id="harmonogram" class="py-24 px-6 max-w-4xl mx-auto">
-        <h2 class="font-serif text-4xl md:text-5xl text-center mb-20 italic">Harmonogram dne</h2>
+        <h2 class="font-serif text-5xl text-center mb-20 italic">Harmonogram</h2>
         <div class="relative timeline-line">
-            <div class="relative flex items-center justify-between mb-16 md:flex-row-reverse w-full">
+            <div class="relative flex items-center mb-16 md:flex-row-reverse w-full">
                 <div class="hidden md:block w-5/12"></div>
                 <div class="z-10 bg-vinova w-3 h-3 rounded-full border-4 border-kremova outline outline-1 outline-vinova"></div>
                 <div class="w-full md:w-5/12 pl-10 md:pl-0 md:text-right">
                     <span class="font-serif text-2xl italic">13:00</span>
-                    <h3 class="font-bold uppercase tracking-[0.2em] text-xs mt-1">Příjezd hostů</h3>
+                    <h3 class="font-bold uppercase tracking-[0.2em] text-[10px] mt-1">Sraz hostů</h3>
                 </div>
             </div>
-            <div class="relative flex items-center justify-between mb-16 w-full">
+            <div class="relative flex items-center mb-16 w-full">
                 <div class="hidden md:block w-5/12"></div>
                 <div class="z-10 bg-vinova w-3 h-3 rounded-full border-4 border-kremova outline outline-1 outline-vinova"></div>
                 <div class="w-full md:w-5/12 pl-10">
                     <span class="font-serif text-2xl italic">14:00</span>
-                    <h3 class="font-bold uppercase tracking-[0.2em] text-xs mt-1">Svatební obřad</h3>
+                    <h3 class="font-bold uppercase tracking-[0.2em] text-[10px] mt-1">Svatební obřad</h3>
                 </div>
             </div>
-            <div class="relative flex items-center justify-between mb-16 md:flex-row-reverse w-full">
+            <div class="relative flex items-center mb-16 md:flex-row-reverse w-full">
                 <div class="hidden md:block w-5/12"></div>
                 <div class="z-10 bg-vinova w-3 h-3 rounded-full border-4 border-kremova outline outline-1 outline-vinova"></div>
                 <div class="w-full md:w-5/12 pl-10 md:pl-0 md:text-right">
                     <span class="font-serif text-2xl italic">16:00</span>
-                    <h3 class="font-bold uppercase tracking-[0.2em] text-xs mt-1">Svatební hostina & Raut</h3>
+                    <h3 class="font-bold uppercase tracking-[0.2em] text-[10px] mt-1">Hostina & Raut</h3>
                 </div>
             </div>
-            <div class="relative flex items-center justify-between mb-16 w-full">
+            <div class="relative flex items-center mb-16 w-full">
                 <div class="hidden md:block w-5/12"></div>
                 <div class="z-10 bg-vinova w-3 h-3 rounded-full border-4 border-kremova outline outline-1 outline-vinova"></div>
                 <div class="w-full md:w-5/12 pl-10">
                     <span class="font-serif text-2xl italic">20:00</span>
-                    <h3 class="font-bold uppercase tracking-[0.2em] text-xs mt-1">Party & Foodtruck</h3>
+                    <h3 class="font-bold uppercase tracking-[0.2em] text-[10px] mt-1">Party & Foodtruck</h3>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- 5. ADRESA & MAPA -->
-    <section id="misto" class="py-20 bg-white">
-        <div class="text-center mb-12 px-6">
-            <h2 class="font-serif text-4xl mb-4 italic">Adresa</h2>
-            <p class="uppercase tracking-[0.3em] text-sm">Husova 225, Borohrádek</p>
-        </div>
-        <div class="h-[500px] w-full grayscale-map">
-            <iframe class="w-full h-full border-0" 
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2558.408764049216!2d16.089018476882655!3d50.10113827150143!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x470e0513d2f9d501%3A0x7d6c6e75e13d5241!2sHusova%20225%2C%20517%2024%20Borohr%C3%A1dek!5e0!3m2!1scs!2scz!4v1710000000000" 
-                allowfullscreen="" loading="lazy"></iframe>
+    <section id="misto" class="py-24 bg-kremova">
+        <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-3 gap-12 items-center">
+            <div class="md:col-span-1">
+                <h2 class="font-serif text-5xl mb-6 italic">Adresa</h2>
+                <p class="uppercase tracking-[0.2em] text-sm mb-2">Husova 225, Borohrádek</p>
+                <p class="font-light italic opacity-70">Parkování je zajištěno přímo v areálu stodoly.</p>
+            </div>
+            <div class="md:col-span-2 h-[450px] rounded-sm overflow-hidden shadow-inner border border-vinova/5">
+                <iframe class="w-full h-full" 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2558.408764049216!2d16.089018476882655!3d50.10113827150143!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x470e0513d2f9d501%3A0x7d6c6e75e13d5241!2sHusova%20225%2C%20517%2024%20Borohr%C3%A1dek!5e0!3m2!1scs!2scz!4v1710000000000" 
+                    allowfullscreen="" loading="lazy"></iframe>
+            </div>
         </div>
     </section>
 
     <!-- 6. JÍDLO -->
-    <section class="py-24 px-6 max-w-6xl mx-auto">
-        <div class="grid md:grid-cols-2 gap-16 items-center">
-            <div>
-                <h2 class="font-serif text-4xl md:text-5xl mb-8 italic leading-tight">Čím vás <br>nakrmíme</h2>
+    <section class="py-24 px-6 max-w-7xl mx-auto">
+        <div class="grid md:grid-cols-2 gap-20 items-center">
+            <div class="order-2 md:order-1">
+                <img src="stodola2.avif" alt="Jídlo" class="w-full h-auto rounded-sm">
+            </div>
+            <div class="order-1 md:order-2">
+                <h2 class="font-serif text-5xl mb-8 italic leading-tight">Čím vás <br>nakrmíme</h2>
                 <p class="text-lg font-light leading-relaxed mb-8">
-                    O raut se postará <strong>Kampus bistro</strong> a večerní chutě uspokojíme stylovým <strong>foodtruckem</strong>. Hlady vás určitě nenecháme!
+                    O raut se postará <a href="https://www.instagram.com/kampusbistro/" target="_blank" class="font-bold border-b border-vinova/30 hover:opacity-60 transition">Kampus bistro</a>. Večer se pak můžete těšit na náš oblíbený foodtruck.
                 </p>
-                <div class="space-y-6">
-                    <p class="font-medium uppercase tracking-widest text-[10px] opacity-50">Doporučení v okolí:</p>
-                    <div class="flex items-center space-x-4 italic">
-                        <span class="text-2xl">☕</span> <div><p class="font-semibold not-italic text-sm">Den</p><p class="text-xs opacity-60 uppercase tracking-wider">Kavárna & bistro</p></div>
+                <div class="space-y-6 pt-6 border-t border-vinova/10">
+                    <p class="font-medium uppercase tracking-widest text-[9px] opacity-50">Tipy v okolí:</p>
+                    <div class="flex items-center space-x-4">
+                        <span class="text-xl italic">☕</span> <div><p class="font-semibold text-sm">Den</p></div>
                     </div>
-                    <div class="flex items-center space-x-4 italic">
-                        <span class="text-2xl">🍺</span> <div><p class="font-semibold not-italic text-sm">Kozlova putyka</p><p class="text-xs opacity-60 uppercase tracking-wider">Klasická kuchyně</p></div>
+                    <div class="flex items-center space-x-4">
+                        <span class="text-xl italic">🍺</span> <div><p class="font-semibold text-sm">Kozlova putyka</p></div>
                     </div>
-                    <div class="flex items-center space-x-4 italic">
-                        <span class="text-2xl">🍴</span> <div><p class="font-semibold not-italic text-sm">Lípa</p><p class="text-xs opacity-60 uppercase tracking-wider">Restaurace</p></div>
+                    <div class="flex items-center space-x-4">
+                        <span class="text-xl italic">🍴</span> <div><p class="font-semibold text-sm">Lípa</p></div>
                     </div>
                 </div>
-            </div>
-            <div class="relative">
-                <div class="absolute -inset-4 border border-vinova/10 rounded-sm"></div>
-                <img src="stodola2.avif" alt="Food info" class="relative w-full h-[500px] object-cover rounded-sm">
             </div>
         </div>
     </section>
 
     <!-- 7. UBYTOVÁNÍ -->
     <section id="ubytovani" class="bg-vinova text-kremova py-24 px-6">
-        <div class="max-w-6xl mx-auto">
+        <div class="max-w-7xl mx-auto">
             <div class="text-center mb-16">
-                <h2 class="font-serif text-4xl md:text-5xl mb-6 italic">Ubytování</h2>
-                <p class="max-w-2xl mx-auto font-light leading-relaxed opacity-90 italic">
-                    Pro ty nejvytrvalejší je možné skromné přespání přímo v areálu stodoly (chatky a společné prostory).
+                <h2 class="font-serif text-5xl mb-6 italic">Ubytování</h2>
+                <p class="max-w-2xl mx-auto font-light leading-relaxed opacity-80 italic">
+                    Přespání je možné přímo v areálu v těchto prostorách. Jde o skromnější, ale velmi útulné ubytování.
                 </p>
             </div>
             
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 h-[400px]">
-                <img src="ubytovani_chatky.avif" class="w-full h-full object-cover rounded-sm" alt="Ubytování chatky">
-                <img src="ubytovani_stodola.avif" class="w-full h-full object-cover rounded-sm" alt="Ubytování stodola 1">
-                <img src="ubytovani_stodola2.avif" class="w-full h-full object-cover rounded-sm" alt="Ubytování stodola 2">
-                <img src="stodola.avif" class="w-full h-full object-cover rounded-sm" alt="Areál">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
+                <div class="flex flex-col space-y-4">
+                    <img src="ubytovani_chatky.avif" class="photo-natural rounded-sm" alt="Chatky">
+                    <p class="text-[10px] uppercase tracking-widest text-center opacity-50 italic">Areál chatek</p>
+                </div>
+                <div class="flex flex-col space-y-4">
+                    <img src="ubytovani_stodola.avif" class="photo-natural rounded-sm" alt="Ubytování 1">
+                    <p class="text-[10px] uppercase tracking-widest text-center opacity-50 italic">Společné prostory</p>
+                </div>
+                <div class="flex flex-col space-y-4">
+                    <img src="ubytovani_stodola2.avif" class="photo-natural rounded-sm" alt="Ubytování 2">
+                    <p class="text-[10px] uppercase tracking-widest text-center opacity-50 italic">Ložnice</p>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- 8. DARY A BARVY -->
-    <section id="dary" class="py-24 px-6 max-w-6xl mx-auto grid md:grid-cols-2 gap-20 items-start">
+    <section id="dary" class="py-24 px-6 max-w-5xl mx-auto grid md:grid-cols-2 gap-20 items-center">
         <div>
-            <h2 class="font-serif text-4xl mb-6 italic">Svatební dary</h2>
-            <p class="text-lg font-light leading-relaxed italic mb-8">
-                "Pokud byste nás chtěli obdarovat, budeme vděční za finanční příspěvek na naši vysněnou cestu."
+            <h2 class="font-serif text-5xl mb-6 italic">Svatební dary</h2>
+            <p class="text-lg font-light leading-relaxed italic">
+                Vaše přítomnost je pro nás tím největším darem. Pokud byste nás však přesto chtěli obdarovat, budeme vděční za jakýkoliv finanční příspěvek na naši svatební cestu.
             </p>
-            <div class="p-8 border border-vinova/10 bg-white/50 rounded-sm text-center">
-                <p class="text-[10px] uppercase tracking-widest opacity-50 mb-2">Číslo účtu</p>
-                <p class="text-2xl font-serif">2101234567 / 2010</p>
-            </div>
         </div>
-        <div>
-            <h2 class="font-serif text-4xl mb-8 italic">Barvy svatby</h2>
-            <div class="flex space-x-6">
-                <div class="group">
-                    <div class="w-16 h-16 rounded-full bg-[#590303] shadow-xl transition-transform group-hover:scale-110"></div>
-                    <p class="text-[9px] uppercase tracking-widest text-center mt-3 opacity-60">Vínová</p>
+        <div class="flex flex-col items-center md:items-start">
+            <h2 class="font-serif text-5xl mb-10 italic">Barvy svatby</h2>
+            <div class="flex space-x-12">
+                <div class="group text-center">
+                    <div class="w-20 h-20 rounded-full bg-vinova shadow-xl mb-4 border border-vinova/10 transition-transform group-hover:scale-105"></div>
+                    <p class="text-[10px] uppercase tracking-widest opacity-60">Vínová</p>
                 </div>
-                <div class="group">
-                    <div class="w-16 h-16 rounded-full bg-[#D4A373] shadow-xl transition-transform group-hover:scale-110 border border-black/5"></div>
-                    <p class="text-[9px] uppercase tracking-widest text-center mt-3 opacity-60">Starorůžová</p>
-                </div>
-                <div class="group">
-                    <div class="w-16 h-16 rounded-full bg-[#F8F6F2] shadow-xl transition-transform group-hover:scale-110 border border-black/10"></div>
-                    <p class="text-[9px] uppercase tracking-widest text-center mt-3 opacity-60">Krémová</p>
+                <div class="group text-center">
+                    <div class="w-20 h-20 rounded-full bg-kremova shadow-xl mb-4 border border-vinova/20 transition-transform group-hover:scale-105"></div>
+                    <p class="text-[10px] uppercase tracking-widest opacity-60">Piškotová</p>
                 </div>
             </div>
-            <p class="mt-12 text-xs uppercase tracking-[0.3em] font-medium border-l-2 border-vinova pl-4">Dresscode: Semi-formal / Boho</p>
         </div>
     </section>
 
     <!-- 9. PATIČKA -->
-    <footer class="bg-vinova text-kremova pt-24 pb-8 px-6 overflow-hidden">
-        <div class="max-w-6xl mx-auto">
-            <div class="flex flex-col md:flex-row justify-between items-center mb-20 gap-10">
-                <div class="font-serif text-6xl italic tracking-tighter">A&M</div>
-                <div class="flex flex-col md:flex-row gap-10 md:gap-20 text-center md:text-left uppercase tracking-widest text-[11px]">
+    <footer class="bg-vinova text-kremova pt-24 pb-12 px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-center mb-24 gap-12">
+                <div class="font-serif text-7xl italic tracking-tighter">A&M</div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 text-center md:text-left uppercase tracking-widest text-[11px]">
                     <div>
-                        <p class="opacity-40 mb-2 font-normal text-[9px]">Anička</p>
+                        <p class="opacity-40 mb-3 text-[9px]">Nevěsta Anička</p>
                         <p class="font-medium">+420 604 616 637</p>
                     </div>
                     <div>
-                        <p class="opacity-40 mb-2 font-normal text-[9px]">Martin</p>
+                        <p class="opacity-40 mb-3 text-[9px]">Ženich Martin</p>
                         <p class="font-medium">+420 735 000 998</p>
                     </div>
                 </div>
             </div>
 
-            <!-- Horizontal Gallery -->
-            <div class="flex space-x-4 overflow-x-auto no-scrollbar pb-16">
-                <img src="am_foto2.avif" class="h-64 md:h-80 w-auto object-cover rounded-sm grayscale hover:grayscale-0 transition duration-700" alt="Galerie 1">
-                <img src="am_foto3.avif" class="h-64 md:h-80 w-auto object-cover rounded-sm grayscale hover:grayscale-0 transition duration-700" alt="Galerie 2">
-                <img src="am_foto4.avif" class="h-64 md:h-80 w-auto object-cover rounded-sm grayscale hover:grayscale-0 transition duration-700" alt="Galerie 3">
-                <img src="am_foto.png" class="h-64 md:h-80 w-auto object-cover rounded-sm grayscale hover:grayscale-0 transition duration-700" alt="Galerie 4">
+            <div class="flex space-x-6 overflow-x-auto no-scrollbar pb-16">
+                <img src="am_foto2.avif" class="h-64 flex-shrink-0 grayscale hover:grayscale-0 transition duration-700 rounded-sm" alt="Galerie 1">
+                <img src="am_foto3.avif" class="h-64 flex-shrink-0 grayscale hover:grayscale-0 transition duration-700 rounded-sm" alt="Galerie 2">
+                <img src="am_foto4.avif" class="h-64 flex-shrink-0 grayscale hover:grayscale-0 transition duration-700 rounded-sm" alt="Galerie 3">
+                <img src="am_foto.png" class="h-64 flex-shrink-0 grayscale hover:grayscale-0 transition duration-700 rounded-sm" alt="Galerie 4">
             </div>
 
-            <div class="text-center text-[9px] opacity-30 uppercase tracking-[0.5em] mt-8">
-                &copy; 2026 Anička & Martin • annanke.cz
+            <div class="text-center text-[9px] opacity-20 uppercase tracking-[0.5em] mt-10">
+                &copy; 2026 Anička & Martin
             </div>
         </div>
     </footer>
 
     <script>
-        // Mobilní menu toggle
+        // Mobilní menu
         function toggleMenu() {
-            const menu = document.getElementById('mobileMenu');
-            menu.classList.toggle('hidden');
+            document.getElementById('mobileMenu').classList.toggle('hidden');
         }
         document.getElementById('menuBtn').addEventListener('click', toggleMenu);
 
         // Odpočet
-        const weddingDate = new Date("June 6, 2026 14:00:00").getTime();
-        const timer = setInterval(function() {
+        const targetDate = new Date("June 6, 2026 14:00:00").getTime();
+        setInterval(function() {
             const now = new Date().getTime();
-            const distance = weddingDate - now;
-            document.getElementById("days").innerText = Math.floor(distance / (1000 * 60 * 60 * 24)).toString().padStart(2, '0');
-            document.getElementById("hours").innerText = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)).toString().padStart(2, '0');
-            document.getElementById("minutes").innerText = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)).toString().padStart(2, '0');
-            document.getElementById("seconds").innerText = Math.floor((distance % (1000 * 60)) / 1000).toString().padStart(2, '0');
-            if (distance < 0) { clearInterval(timer); document.getElementById("countdown").innerHTML = "PRÁVĚ TEĎ"; }
+            const dist = targetDate - now;
+            document.getElementById("days").innerText = Math.floor(dist / (1000 * 60 * 60 * 24)).toString().padStart(2, '0');
+            document.getElementById("hours").innerText = Math.floor((dist % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)).toString().padStart(2, '0');
+            document.getElementById("minutes").innerText = Math.floor((dist % (1000 * 60 * 60)) / (1000 * 60)).toString().padStart(2, '0');
+            document.getElementById("seconds").innerText = Math.floor((dist % (1000 * 60)) / 1000).toString().padStart(2, '0');
         }, 1000);
     </script>
-
-    <style>
-        @keyframes fade-in {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-    </style>
 </body>
 </html>
