@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Svatba Anička & Martin | 6. 6. 2026</title>
+    <title>Anička & Martin | 6. 6. 2026</title>
     
     <!-- Google Fonts s plnou podporou češtiny -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -60,7 +60,7 @@
         /* STRIKTNĚ SJEDNOCENÉ NADPISY H2 */
         .h2-unified {
             font-family: 'Playfair Display', serif;
-            font-size: 3.5rem; /* Odpovídá text-6xl/7xl */
+            font-size: 3.5rem;
             font-style: italic;
             line-height: 1.1;
             margin-bottom: 3rem;
@@ -71,7 +71,7 @@
             .h2-unified { font-size: 2.5rem; }
         }
 
-        /* STRIKTNĚ SJEDNOCENÉ ODSTAVCE */
+        /* STRIKTNĚ SJEDNOCENÉ ODSTAVCE - REFERENCE */
         .p-unified {
             font-family: 'Montserrat', sans-serif;
             font-size: 1.125rem;
@@ -141,7 +141,7 @@
                 </svg>
             </button>
         </div>
-        <div id="mobileMenu" class="hidden flex flex-col pt-4 pb-6 space-y-4 text-center uppercase tracking-widest text-[11px] bg-kremova font-bold">
+        <div id="mobileMenu" class="hidden flex flex-col pt-4 pb-6 space-y-4 text-center uppercase tracking-widest text-[11px] bg-kremova font-bold shadow-xl">
             <a href="#misto" onclick="toggleMenu()">Místo</a>
             <a href="#harmonogram" onclick="toggleMenu()">Harmonogram</a>
             <a href="#jidlo" onclick="toggleMenu()">Jídlo</a>
@@ -207,9 +207,9 @@
     <!-- 4. HARMONOGRAM -->
     <section id="harmonogram" class="py-32 px-6 bg-kremova">
         <div class="max-w-4xl mx-auto w-full">
-            <h2 class="h2-unified text-center">Harmonogram</h2>
+            <h2 class="h2-unified text-center md:text-[8rem]">Harmonogram</h2>
             
-            <div class="space-y-12">
+            <div class="space-y-12 text-vinova">
                 <div class="flex items-center group transition-all duration-500 hover:scale-[1.02] cursor-default">
                     <span class="font-serif text-5xl md:text-8xl opacity-10 italic w-32 md:w-64 transition-all duration-500 group-hover:opacity-100 group-hover:text-vinova">12:15</span>
                     <div class="flex-grow border-b border-vinova/10 mx-6 mb-2 group-hover:border-vinova/30 transition-colors"></div>
@@ -248,14 +248,14 @@
     <section id="misto" class="py-24 border-y border-vinova/5 bg-white/30">
         <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-20 items-center">
             <div>
-                <h2 class="h2-unified">Místo konání</h2>
+                <h2 class="h2-unified md:text-6xl">Místo konání</h2>
                 <p class="poi-title mb-4">Husova 225, Borohrádek</p>
                 <div class="h-px w-20 bg-vinova/20 mb-8"></div>
                 <p class="p-unified max-w-sm">
                     Parkování je zajištěno přímo v areálu stodoly. Sledujte naše svatební značení.
                 </p>
                 <div class="mt-10">
-                    <a href="https://www.instagram.com/stodolaborohradek/" target="_blank" class="text-[11px] uppercase tracking-[0.3em] font-bold border-b border-vinova/30 pb-2 hover:opacity-50 transition italic">Instagram @stodolaborohradek</a>
+                    <a href="https://www.instagram.com/stodolaborohradek/" target="_blank" class="text-[11px] uppercase tracking-[0.3em] font-bold border-b border-vinova/30 pb-2 hover:opacity-50 transition italic font-sans">Instagram @stodolaborohradek</a>
                 </div>
             </div>
             <div class="map-sepia h-[450px] w-full rounded shadow-xl overflow-hidden bg-kremova">
@@ -269,13 +269,14 @@
     <!-- 6. JÍDLO -->
     <section id="jidlo" class="py-32 px-6 bg-kremova overflow-hidden">
         <div class="max-w-6xl mx-auto space-y-32">
+            
             <!-- BLOK 1: Hlavní text + Fotky jídla -->
             <div class="grid md:grid-cols-2 gap-16 items-center">
                 <div class="space-y-8">
                     <h2 class="h2-unified">Na čem si pochutnáte</h2>
                     <div class="space-y-6">
                         <p class="p-unified">Tradiční společný oběd pro úzký okruh neplánujeme – chceme být se všemi hned od začátku.</p>
-                        <p class="p-unified">Raut od <span class="font-bold underline underline-offset-8 decoration-vinova/20">Kampus catering</span> začne kolem <span class="font-bold not-italic">14:00</span>.</p>
+                        <p class="p-unified font-bold not-italic">Raut od <span class="underline underline-offset-8 decoration-vinova/20">Kampus catering</span> začne kolem 14:00.</p>
                     </div>
                 </div>
                 <div class="grid grid-cols-2 gap-4">
@@ -291,7 +292,8 @@
                     <div class="img-zoom shadow-lg mt-12"><img src="jidlo4.png" class="w-full h-72 object-cover" alt="Jídlo"></div>
                 </div>
                 <div class="space-y-8 order-1 md:order-2">
-                    <p class="p-unified text-xl md:text-2xl">
+                    <!-- Sjednoceno na p-unified -->
+                    <p class="p-unified">
                         Protože catering startuje déle, doporučujeme se po cestě k nám zastavit na oběd, ať vám během obřadu nekručí v břiše:
                     </p>
                     <div class="space-y-8 pt-4">
@@ -316,12 +318,13 @@
     <!-- 7. UBYTOVÁNÍ -->
     <section id="ubytovani" class="bg-vinova text-kremova py-32 px-6">
         <div class="max-w-6xl mx-auto space-y-24">
-            <h2 class="h2-unified text-center text-kremova">Ubytování</h2>
+            <h2 class="h2-unified text-center text-kremova md:text-8xl">Ubytování</h2>
             
             <!-- BLOK 1: Text o Stodole + 2 Fotky -->
-            <div class="grid md:grid-cols-2 gap-16 items-center">
+            <div class="grid md:grid-cols-2 gap-16 items-center text-kremova">
                 <div class="order-2 md:order-1">
-                    <p class="p-unified text-kremova text-xl md:text-2xl">
+                    <!-- Sjednoceno na p-unified -->
+                    <p class="p-unified">
                         Pro ty, kteří budou chtít zůstat i přes noc, je v areálu Stodoly Borohrádek k dispozici skromné ubytování. Není to žádnej Hotel Ritz, ale na přespání postačí.
                     </p>
                 </div>
@@ -338,7 +341,10 @@
                     <div class="img-zoom shadow-lg mt-12"><img src="ubytovani_stodola2.avif" class="w-full h-72 object-cover" alt="Ubytování"></div>
                 </div>
                 <div class="space-y-8">
-                    <p class="p-unified text-kremova">Pokud by ale někdo přece jen toužil po větším komfortu, je možné si na vlastní pěst zajistit ubytování např:</p>
+                    <!-- Sjednoceno na p-unified -->
+                    <p class="p-unified">
+                        Pokud by ale někdo přece jen toužil po větším komfortu, je možné si na vlastní pěst zajistit ubytování např:
+                    </p>
                     <div class="space-y-6">
                         <a href="https://www.avepo.cz/" target="_blank" class="poi-item block border-white/20 hover:bg-white/5 transition-colors py-2">
                             <p class="poi-title text-kremova font-bold underline underline-offset-8">• Avepo Borohrádek</p>
@@ -362,17 +368,17 @@
     <section id="dary" class="py-40 px-6 max-w-6xl mx-auto">
         <div class="grid lg:grid-cols-2 gap-24 items-start">
             <div class="text-center lg:text-left">
-                <h2 class="h2-unified">Svatební dary</h2>
+                <h2 class="h2-unified md:text-6xl">Svatební dary</h2>
                 <p class="p-unified opacity-80 max-w-md mx-auto lg:mx-0">
                     Vaše přítomnost je pro nás největším darem. Pokud nás přesto chcete obdarovat, budeme vděční za finanční příspěvek na líbánky.
                 </p>
             </div>
             
             <div class="flex flex-col items-center lg:items-start">
-                <h2 class="h2-unified">Barvy svatby</h2>
+                <h2 class="h2-unified md:text-6xl">Barvy svatby</h2>
                 <div class="flex space-x-12 mb-8 pt-2">
                     <div class="text-center group">
-                        <div class="w-20 h-20 rounded-full bg-vinova shadow-2xl mb-4 transition transform group-hover:scale-110"></div>
+                        <div class="w-20 h-20 rounded-full bg-vinova shadow-2xl mb-4 transition transform group-hover:scale-110 border border-vinova/10"></div>
                         <p class="poi-title opacity-50">Vínová</p>
                     </div>
                     <div class="text-center group">
